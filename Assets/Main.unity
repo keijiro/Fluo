@@ -205,6 +205,55 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291526602}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &466888078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 466888080}
+  - component: {fileID: 466888079}
+  m_Layer: 0
+  m_Name: Fluid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &466888079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466888078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b35f6f5dea6274db0eda640e08abc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Viscosity>k__BackingField: 0.000001
+  <PointForce>k__BackingField: 300
+  <PointFalloff>k__BackingField: 200
+  _velocityField: {fileID: 8400000, guid: a637d858b4e8a43e6babfe9244a39176, type: 2}
+  _kernelsShader: {fileID: 4800000, guid: 636ac93388c5343c894f80bf0fc605f2, type: 3}
+--- !u!4 &466888080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466888078}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &634989431
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,3 +814,4 @@ SceneRoots:
   - {fileID: 634989432}
   - {fileID: 1838765297}
   - {fileID: 1826498264}
+  - {fileID: 466888080}
