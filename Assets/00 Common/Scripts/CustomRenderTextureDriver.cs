@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Fluo {
-
-public sealed class CanvasController : MonoBehaviour
+public sealed class CustomRenderTextureDriver : MonoBehaviour
 {
     [SerializeField] CustomRenderTexture _target = null;
 
@@ -12,5 +10,3 @@ public sealed class CanvasController : MonoBehaviour
     void Update()
       => _target.Update();
 }
-
-} // namespace Fluo

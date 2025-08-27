@@ -21,7 +21,7 @@ public sealed class FluidSimulation : IDisposable
 
     #region Constructor and Dispose
 
-    public FluidSimulation(RenderTexture velocityField, Shader pixelKernelsShader)
+    public FluidSimulation(RenderTexture velocityField, Shader kernelsShader)
     {
         _v1 = velocityField;
         _resolution = new Vector2Int(_v1.width, _v1.height);
@@ -32,7 +32,7 @@ public sealed class FluidSimulation : IDisposable
         _p2 = RTUtil.AllocateRHalf(_resolution);
         _divW = RTUtil.AllocateRHalf(_resolution);
 
-        _mat = new Material(pixelKernelsShader);
+        _mat = new Material(kernelsShader);
         _mat.SetInt(ShaderIDs.TexWidth, _resolution.x);
         _mat.SetInt(ShaderIDs.TexHeight, _resolution.y);
     }
@@ -51,12 +51,24 @@ public sealed class FluidSimulation : IDisposable
 
     #region Simulation methods
 
+    public void ClearVelocityField()
+    {
+        Graphics.Blit(Texture2D.blackTexture, _v1);
+    }
+
+    public void ApplyForceField(RenderTexture forceField)
+    {
+        _mat.SetTexture(ShaderIDs.ForceField, forceField);
+        Graphics.Blit(_v2, _v3, _mat, 0);
+        (_v2, _v3) = (_v3, _v2);
+    }
+
     public void PreStep()
     {
         var dt = Time.deltaTime;
 
         // Advection U -> W (_v1 -> v2)
-        Graphics.Blit(_v1, _v2, _mat, 0);
+        Graphics.Blit(_v1, _v2, _mat, 1);
 
         // Diffusion via Jacobi on vector field (pass 4)
         var dx = 1.0f / _resolution.x;
@@ -79,9 +91,9 @@ public sealed class FluidSimulation : IDisposable
 
     public void PostStep()
     {
-        // PSetup: compute divergence of W_in (v3) to divW and clear p1 (pass 2)
-        _mat.SetTexture(ShaderIDs.MainTex, _v3);
-        Graphics.Blit(_v3, _divW, _mat, 2);
+        // PSetup: compute divergence of W_in (v2) to divW and clear p1 (pass 2)
+        _mat.SetTexture(ShaderIDs.MainTex, _v2);
+        Graphics.Blit(_v2, _divW, _mat, 2);
         Graphics.Blit(Texture2D.blackTexture, _p1);
 
         // Jacobi on scalar field for pressure
@@ -97,22 +109,9 @@ public sealed class FluidSimulation : IDisposable
         }
 
         // PFinish (pass 5): subtract pressure gradient to get divergence-free field U_out (_v1)
-        _mat.SetTexture(ShaderIDs.W, _v3);
+        _mat.SetTexture(ShaderIDs.W, _v2);
         _mat.SetTexture(ShaderIDs.P, _p1);
-        Graphics.Blit(_v3, _v1, _mat, 5);
-    }
-
-    #endregion
-
-    #region Force methods
-
-    public void ApplyPointForce(Vector2 origin, Vector2 force, float falloff)
-    {
-        _mat.SetVector(ShaderIDs.ForceOrigin, origin);
-        _mat.SetFloat(ShaderIDs.ForceExponent, falloff);
-        _mat.SetVector(ShaderIDs.ForceVector, force);
-        _mat.SetTexture(ShaderIDs.MainTex, _v2);
-        Graphics.Blit(_v2, _v3, _mat, 1);
+        Graphics.Blit(_v2, _v1, _mat, 5);
     }
 
     #endregion

@@ -1,0 +1,11 @@
+{
+  "author": "Keijiro Takahashi",
+  "dependencies": {},
+  "description": "Fluo common files.",
+  "displayName": "Fluo",
+  "keywords": [ "unity" ],
+  "name": "jp.keijiro.fluo",
+  "unity": "6000.0",
+  "unityRelease": "0f1",
+  "version": "1.0.0"
+}
