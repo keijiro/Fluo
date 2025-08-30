@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Fluo {
 
-public sealed class MarblingFluidSimulator : MonoBehaviour
+public sealed class FluidController : MonoBehaviour
 {
     #region Public properties
 

@@ -197,6 +197,14 @@
       "dependencies": {},
       "url": "https://registry.npmjs.com"
     },
+    "jp.keijiro.urp-cameratextureutils": {
+      "version": "file:jp.keijiro.urp-cameratextureutils",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.render-pipelines.universal": "17.0.0"
+      }
+    },
     "jp.keijiro.vfxgraphassets": {
       "version": "3.9.1",
       "depth": 0,

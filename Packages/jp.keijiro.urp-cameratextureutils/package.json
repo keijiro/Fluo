@@ -1,0 +1,13 @@
+{
+  "name": "jp.keijiro.urp-cameratextureutils",
+  "displayName": "Camera Texture Utilities for URP",
+  "description": "URP custom renderer features for handling camera textures.",
+  "author": "Keijiro Takahashi",
+  "license": "Unlicense",
+  "version": "0.0.1",
+  "unity": "6000.0",
+  "keywords": ["unity"],
+  "dependencies": {
+    "com.unity.render-pipelines.universal": "17.0.0"
+  }
+}
