@@ -2,8 +2,11 @@
   "dependencies": {
     "com.unity.inputsystem": "1.14.2",
     "com.unity.render-pipelines.universal": "17.0.4",
+    "jp.keijiro.klak.motion": "1.1.0",
     "jp.keijiro.klak.testtools": "3.1.0",
     "jp.keijiro.klutter-tools": "2.3.0",
+    "jp.keijiro.metamesh": "1.2.0",
+    "jp.keijiro.minibokeh": "1.2.0",
     "jp.keijiro.spectral-js-unity": "1.0.0",
     "jp.keijiro.vfxgraphassets": "3.9.1"
   },
