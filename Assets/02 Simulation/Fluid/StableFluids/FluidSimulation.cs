@@ -33,8 +33,6 @@ public sealed class FluidSimulation : IDisposable
         _divW = RTUtil.AllocateRHalf(_resolution);
 
         _mat = new Material(kernelsShader);
-        _mat.SetInt(ShaderIDs.TexWidth, _resolution.x);
-        _mat.SetInt(ShaderIDs.TexHeight, _resolution.y);
     }
 
     public void Dispose()
@@ -66,6 +64,10 @@ public sealed class FluidSimulation : IDisposable
     public void PreStep()
     {
         var dt = Time.deltaTime;
+
+        // Texture parameters
+        _mat.SetInt(ShaderIDs.TexWidth, _resolution.x);
+        _mat.SetInt(ShaderIDs.TexHeight, _resolution.y);
 
         // Advection U -> W (_v1 -> v2)
         Graphics.Blit(_v1, _v2, _mat, 1);
