@@ -56,7 +56,7 @@ half4 FragmentApplyForce(float4 positionCS : SV_POSITION,
 {
     float2 velocity = _MainTex[PixelCoord(uv)].xy;
     float2 force = _ForceField[PixelCoord(uv)].xy;
-    return half4(velocity + force, 0, 1);
+    return half4(velocity + force * unity_DeltaTime.x, 0, 1);
 }
 
 // Pass 1: Velocity Advection
