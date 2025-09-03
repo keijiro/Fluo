@@ -25,7 +25,7 @@ public sealed class MonitorSwitcher : MonoBehaviour
         {
             await WaitSwitchAsync();
 
-            props.SetInteger("_Alternate", 0);
+            props.SetInteger(ShaderID.Alternate, 0);
             _targetRenderer.SetPropertyBlock(props);
             _targetCamera.enabled = true;
 
