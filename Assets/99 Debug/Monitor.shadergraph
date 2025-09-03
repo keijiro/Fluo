@@ -454,7 +454,7 @@
     "m_FunctionName": "TextureMultiplexer",
     "m_FunctionSource": "",
     "m_FunctionSourceUsePragmas": true,
-    "m_FunctionBody": "float2 uv2 = frac(UV * 2);\n\nif (Alternate)\n{\n  if (UV.y < 0.5)\n  {\n    float4 c1 = tex2D(VelocityTex, uv2);\n    float4 c2 = tex2D(MotionTex, uv2);\n    float2 v = (UV.x < 0.5 ? c1.xy * 4 : c2.xy * 10) + 0.5;\n    OutColor = SRGBToLinear(float3(v, 0));\n  }\n  else\n  {\n    float4 c = tex2D(SourceTex, uv2);\n    OutColor = UV.x < 0.5 ? c.rgb : 0;\n  }\n}\nelse\n{\n  if (UV.y < 0.5)\n  {\n    float4 c = tex2D(InjectionTex, uv2);\n    OutColor = UV.x < 0.5 ? c.rgb : c.a;\n  }\n  else\n  {\n    float4 c = tex2D(CanvasTex, uv2);\n    OutColor = UV.x < 0.5 ? c.rgb : c.a;\n  }\n}"
+    "m_FunctionBody": "float2 uv2 = frac(UV * 2);\n\nif (Alternate)\n{\n  if (UV.y < 0.5)\n  {\n    float4 c1 = tex2D(VelocityTex, uv2);\n    float4 c2 = tex2D(MotionTex, uv2);\n    float2 v = (UV.x < 0.5 ? c1.xy * 4 : c2.xy * 10) + 0.5;\n    OutColor = SRGBToLinear(float3(v, 0));\n  }\n  else\n  {\n    float4 c = tex2D(SourceTex, uv2);\n    OutColor = UV.x < 0.5 ? c.rgb : c.a;\n  }\n}\nelse\n{\n  if (UV.y < 0.5)\n  {\n    float4 c = tex2D(InjectionTex, uv2);\n    OutColor = UV.x < 0.5 ? c.rgb : c.a;\n  }\n  else\n  {\n    float4 c = tex2D(CanvasTex, uv2);\n    OutColor = UV.x < 0.5 ? c.rgb : c.a;\n  }\n}"
 }
 
 {
