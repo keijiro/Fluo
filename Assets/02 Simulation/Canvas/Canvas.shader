@@ -25,9 +25,6 @@ half4 fragUpdate(CustomRenderTextureVaryings i) : SV_Target
 {
     float2 uv = i.globalTexcoord.xy;
 
-    // Injection color sample
-    float4 c1 = SAMPLE_TEXTURE2D(_InjectTex, sampler_InjectTex, uv);
-
     // Velocity field sample
     float2 v = SAMPLE_TEXTURE2D(_VelocityTex, sampler_VelocityTex, uv).xy;
 
@@ -38,8 +35,17 @@ half4 fragUpdate(CustomRenderTextureVaryings i) : SV_Target
     float2 uv_prev = uv - v * unity_DeltaTime.x;
     float4 c0 = SAMPLE_TEXTURE2D(_SelfTexture2D, sampler_SelfTexture2D, uv_prev);
 
-    float3 c = SpectralMix(c0.rgb, c0.a, c1.rgb / LinearToSRGB(c1.a), c1.a);
-    return float4(c, max(c0.a, c1.a));
+    // Injection color sample
+    float4 c1 = SAMPLE_TEXTURE2D(_InjectTex, sampler_InjectTex, uv);
+
+    // Zero-div guard
+    c0.rgb = max(c0.rgb, 1e-5);
+    c1.rgb = max(c1.rgb, 1e-5);
+
+    // Color blending
+    float3 c = SpectralMix(c0.rgb, 1 - c1.a, c1.rgb, c1.a);
+
+    return float4(c, 1);
 }
 
     ENDHLSL
