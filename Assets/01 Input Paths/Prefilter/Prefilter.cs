@@ -53,9 +53,11 @@ public sealed class Prefilter : MonoBehaviour
         // Multiplexing: Color grading and human stencil
         Graphics.Blit(_source.AsTexture, _multiplexOut, _material, 0);
 
-        // Separable Gaussian blur
+        // Separable Gaussian blur x2
         var tmp = RenderTexture.GetTemporary(_blurOut.width, _blurOut.height);
         Graphics.Blit(_multiplexOut, tmp, _material, 1);
+        Graphics.Blit(tmp, _blurOut, _material, 2);
+        Graphics.Blit(_blurOut, tmp, _material, 1);
         Graphics.Blit(tmp, _blurOut, _material, 2);
         RenderTexture.ReleaseTemporary(tmp);
     }

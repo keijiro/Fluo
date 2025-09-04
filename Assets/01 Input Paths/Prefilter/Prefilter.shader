@@ -22,6 +22,49 @@ TEXTURE3D(_LutTex);
 TEXTURE2D(_BodyPixTex);
 float4 _BodyPixTex_TexelSize;
 
+// 17-tap Gaussian blur with bilinear pairing
+float4 Blur17(float2 uv, float2 step)
+{
+    const float sigma = 3;
+    const float s2 = sigma * sigma;
+
+    float w0 = 1;
+    float w1 = exp(-0.5 * 1 * 1 / s2);
+    float w2 = exp(-0.5 * 2 * 2 / s2);
+    float w3 = exp(-0.5 * 3 * 3 / s2);
+    float w4 = exp(-0.5 * 4 * 4 / s2);
+    float w5 = exp(-0.5 * 5 * 5 / s2);
+    float w6 = exp(-0.5 * 6 * 6 / s2);
+    float w7 = exp(-0.5 * 7 * 7 / s2);
+    float w8 = exp(-0.5 * 8 * 8 / s2);
+
+    float norm = w0 + 2 * (w1 + w2 + w3 + w4 + w5 + w6 + w7 + w8);
+    w0 /= norm; w1 /= norm; w2 /= norm;
+    w3 /= norm; w4 /= norm; w5 /= norm;
+    w6 /= norm; w7 /= norm; w8 /= norm;
+
+    float W12 = w1 + w2;
+    float W34 = w3 + w4;
+    float W56 = w5 + w6;
+    float W78 = w7 + w8;
+    float o12 = (1 * w1 + 2 * w2) / W12;
+    float o34 = (3 * w3 + 4 * w4) / W34;
+    float o56 = (5 * w5 + 6 * w6) / W56;
+    float o78 = (7 * w7 + 8 * w8) / W78;
+
+    float4 c = SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv) * w0;
+    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv + step * o12) * W12;
+    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv - step * o12) * W12;
+    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv + step * o34) * W34;
+    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv - step * o34) * W34;
+    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv + step * o56) * W56;
+    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv - step * o56) * W56;
+    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv + step * o78) * W78;
+    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv - step * o78) * W78;
+    return c;
+}
+
+// Shared vertex shader
 void Vertex(uint vertexID : SV_VertexID,
             out float4 positionCS : SV_POSITION,
             out float2 uv : TEXCOORD0)
@@ -30,7 +73,7 @@ void Vertex(uint vertexID : SV_VertexID,
     uv = GetFullScreenTriangleTexCoord(vertexID);
 }
 
-// Multiplexing: Color grading and human stencil
+// Fragment shader: Multiplexing pass (color grading and human stencil)
 float4 FragmentMultiplex(float4 positionCS : SV_POSITION,
                          float2 uv : TEXCOORD0) : SV_Target
 {
@@ -45,54 +88,18 @@ float4 FragmentMultiplex(float4 positionCS : SV_POSITION,
     return float4(graded, alpha);
 }
 
-// Separable Gaussian blur: Horizontal pass
+// Fragment shader: Horizontal blur pass
 float4 FragmentBlurH(float4 positionCS : SV_POSITION,
                      float2 uv : TEXCOORD0) : SV_Target
 {
-    float2 d = float2(_MainTex_TexelSize.x, 0) * 4.5;
-
-    // 9-tap Gaussian weights
-    const float w0 = 0.2270270270; // center
-    const float w1 = 0.1945945946;
-    const float w2 = 0.1216216216;
-    const float w3 = 0.0540540541;
-    const float w4 = 0.0162162162;
-
-    float4 c = SAMPLE_TEXTURE2D(_MainTex, sampler_TrilinearClamp, uv) * w0;
-    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv + d * 1) * w1;
-    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv - d * 1) * w1;
-    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv + d * 2) * w2;
-    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv - d * 2) * w2;
-    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv + d * 3) * w3;
-    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv - d * 3) * w3;
-    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv + d * 4) * w4;
-    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv - d * 4) * w4;
-    return c;
+    return Blur17(uv, float2(_MainTex_TexelSize.x, 0) * 2);
 }
 
-// Separable Gaussian blur: Vertical pass
+// Fragment shader: Vertical blur pass
 float4 FragmentBlurV(float4 positionCS : SV_POSITION,
                      float2 uv : TEXCOORD0) : SV_Target
 {
-    float2 d = float2(0, _MainTex_TexelSize.y) * 4.5;
-
-    // 9-tap Gaussian weights
-    const float w0 = 0.2270270270; // center
-    const float w1 = 0.1945945946;
-    const float w2 = 0.1216216216;
-    const float w3 = 0.0540540541;
-    const float w4 = 0.0162162162;
-
-    float4 c = SAMPLE_TEXTURE2D(_MainTex, sampler_TrilinearClamp, uv) * w0;
-    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv + d * 1) * w1;
-    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv - d * 1) * w1;
-    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv + d * 2) * w2;
-    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv - d * 2) * w2;
-    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv + d * 3) * w3;
-    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv - d * 3) * w3;
-    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv + d * 4) * w4;
-    c += SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv - d * 4) * w4;
-    return c;
+    return Blur17(uv, float2(0, _MainTex_TexelSize.y) * 2);
 }
 
 ENDHLSL
