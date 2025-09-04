@@ -6,18 +6,13 @@ namespace Fluo {
 
 public sealed class Prefilter : MonoBehaviour
 {
-    #region Public properties
-
-    [field:SerializeField] public float Interval { get; set; } = 1;
-
-    #endregion
-
     #region Editable attributes
 
     [SerializeField] ImageSource _source = null;
     [SerializeField] ResourceSet _resources = null;
     [SerializeField] Texture3D _lutTexture = null;
-    [SerializeField] RenderTexture _output = null;
+    [SerializeField] RenderTexture _multiplexOut = null;
+    [SerializeField] RenderTexture _blurOut = null;
 
     #endregion
 
@@ -31,7 +26,6 @@ public sealed class Prefilter : MonoBehaviour
 
     BodyDetector _detector;
     Material _material;
-    float _timer;
 
     #endregion
 
@@ -51,17 +45,22 @@ public sealed class Prefilter : MonoBehaviour
 
     void LateUpdate()
     {
-        if ((_timer -= Time.deltaTime) > 0) return;
-
         _detector.ProcessImage(_source.AsTexture);
+
         _material.SetTexture(ShaderID.BodyPixTex, _detector.MaskTexture);
         _material.SetTexture(ShaderID.LutTex, _lutTexture);
-        Graphics.Blit(_source.AsTexture, _output, _material);
 
-        _timer += Interval;
+        // Multiplexing: Color grading and human stencil
+        Graphics.Blit(_source.AsTexture, _multiplexOut, _material, 0);
+
+        // Separable Gaussian blur
+        var tmp = RenderTexture.GetTemporary(_blurOut.width, _blurOut.height);
+        Graphics.Blit(_multiplexOut, tmp, _material, 1);
+        Graphics.Blit(tmp, _blurOut, _material, 2);
+        RenderTexture.ReleaseTemporary(tmp);
     }
 
     #endregion
 }
 
-} // namespace Dcam2
+} // namespace Fluo
