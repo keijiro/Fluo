@@ -59,7 +59,7 @@ void CompositorCore_float
     outAlbedo = c_i.rgb * fade;
 
     outEmission = c_o * bgTint;
-    outEmission = lerp(outEmission, c_l.rgb, c_l.a * fade);
+    outEmission = lerp(outEmission, c_l.rgb, fade);
     outEmission *= 1 - alpha * fade;
 
     outNormal = float3(0, 0, 1);

@@ -1585,7 +1585,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.16682982, g: 0.19469166, b: 0.21698111, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1638,7 +1638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e33837e88136f4aedab2a816faefebff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ReferencePlane>k__BackingField: {fileID: 0}
+  <ReferencePlane>k__BackingField: {fileID: 437815215}
   <AutoFocus>k__BackingField: 1
   <FocusDistance>k__BackingField: 10
   <BokehStrength>k__BackingField: 9
@@ -1824,7 +1824,7 @@ MonoBehaviour:
   positionAmount:
     x: 0
     y: 0
-    z: 4
+    z: 4.5
   rotationAmount:
     x: 0
     y: 0
