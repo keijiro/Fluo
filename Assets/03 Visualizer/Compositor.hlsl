@@ -35,6 +35,7 @@ void CompositorCore_float
     UnityTexture2D sourceTex,
     UnityTexture2D canvasTex,
     UnityTexture2D blurTex,
+    UnityTexture2D velocityTex,
     float2 uv,
     float innerScale,
     float soften,
@@ -55,6 +56,7 @@ void CompositorCore_float
 
     bool inside = all(uv_i > 0 && uv_i < 1);
     float alpha = smoothstep(0, 0.04, dot(c_i.rgb, 1)) * inside;
+    alpha *= 0.9;
 
     outAlbedo = c_i.rgb * fade;
 
@@ -62,5 +64,12 @@ void CompositorCore_float
     outEmission = lerp(outEmission, c_l.rgb, fade);
     outEmission *= 1 - alpha * fade;
 
-    outNormal = float3(0, 0, 1);
+    float2 duv = velocityTex.texelSize.xy * 1;
+    float h1 = length(tex2D(velocityTex, uv_i - float2(duv.x, 0)).xy);
+    float h2 = length(tex2D(velocityTex, uv_i + float2(duv.x, 0)).xy);
+    float h3 = length(tex2D(velocityTex, uv_i - float2(0, duv.y)).xy);
+    float h4 = length(tex2D(velocityTex, uv_i + float2(0, duv.y)).xy);
+    float2 v = float2(h2 - h1, h4 - h3);
+
+    outNormal = normalize(float3(v * 300 * alpha * fade, 1));
 }
