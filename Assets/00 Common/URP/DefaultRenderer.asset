@@ -55,7 +55,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -268957131532016712}
   - {fileID: -5257913535826829972}
-  m_RendererFeatureMap: b8e339f3e97844fc6cdd522d7f2308b7
+  - {fileID: 536530598142818083}
+  m_RendererFeatureMap: b8e339f3e97844fc6cdd522d7f2308b723376e81bc237207
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   m_AssetVersion: 2
@@ -80,3 +81,29 @@ MonoBehaviour:
   m_DepthTextureFormat: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
+--- !u!114 &536530598142818083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62c9c65cf3354c93be831c8bc075510, type: 3}
+  m_Name: ScreenSpaceAmbientOcclusion
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  m_Settings:
+    AOMethod: 0
+    Downsample: 0
+    AfterOpaque: 0
+    Source: 1
+    NormalSamples: 1
+    Intensity: 2
+    DirectLightingStrength: 0.891
+    Radius: 0.1
+    Samples: 1
+    BlurQuality: 2
+    Falloff: 100
+    SampleCount: -1

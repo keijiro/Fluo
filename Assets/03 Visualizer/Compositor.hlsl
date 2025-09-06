@@ -51,25 +51,21 @@ void CompositorCore_float
     float4 c_o = tex2D(blurTex, uv);
     float4 c_i = tex2D(canvasTex, uv_i);
     float4 c_l = LightGrid(sourceTex, uv_i) * float4(lightTint, 1);
+    float4 c_0 = tex2D(sourceTex, uv_i);
 
     float fade = saturate(1 - length(max(0, abs(uv_i * 2 - 1) - 1 + soften)) / soften);
 
     bool inside = all(uv_i > 0 && uv_i < 1);
     float alpha = smoothstep(0, 0.04, dot(c_i.rgb, 1)) * inside;
-    alpha *= 0.9;
+    alpha *= 0.95;
 
     outAlbedo = c_i.rgb * fade;
 
     outEmission = c_o * bgTint;
     outEmission = lerp(outEmission, c_l.rgb, fade);
-    outEmission *= 1 - alpha * fade;
+    outEmission = lerp(outEmission, (c_0 + 0.4) * outAlbedo, alpha * fade);
 
-    float2 duv = velocityTex.texelSize.xy * 1;
-    float h1 = length(tex2D(velocityTex, uv_i - float2(duv.x, 0)).xy);
-    float h2 = length(tex2D(velocityTex, uv_i + float2(duv.x, 0)).xy);
-    float h3 = length(tex2D(velocityTex, uv_i - float2(0, duv.y)).xy);
-    float h4 = length(tex2D(velocityTex, uv_i + float2(0, duv.y)).xy);
-    float2 v = float2(h2 - h1, h4 - h3);
-
-    outNormal = normalize(float3(v * 300 * alpha * fade, 1));
+    float h = length(outAlbedo);
+    float2 v = float2(ddx(h), ddy(h));
+    outNormal = normalize(float3(v * 10 * alpha * fade, 1));
 }
