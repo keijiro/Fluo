@@ -1,3 +1,4 @@
+// Light grid (LED) pattern generator
 float4 LightGrid(UnityTexture2D source, float2 uv)
 {
     const float2 grid = float2(640, 90);
@@ -30,45 +31,54 @@ float4 LightGrid(UnityTexture2D source, float2 uv)
     return float4(src.rgb * mask * level * shade, level);
 }
 
+// Pseudo bump node
+void AlbedoToNormal_float(float3 albedo, float bumpiness, out float3 outNormal)
+{
+    float level = length(albedo);
+    float2 grad = float2(ddx(level), ddy(level));
+    outNormal = normalize(float3(-grad * bumpiness, 1));
+}
+
+// Compositor core implementation
 void CompositorCore_float
 (
     UnityTexture2D sourceTex,
     UnityTexture2D canvasTex,
-    UnityTexture2D blurTex,
+    UnityTexture2D bgTex,
     UnityTexture2D velocityTex,
     float2 uv,
     float innerScale,
     float soften,
+    float2 opacityParams,
+    float2 transParams,
     float3 bgTint,
     float3 lightTint,
     out float3 outAlbedo,
-    out float3 outEmission,
-    out float3 outNormal
+    out float3 outEmission
 )
 {
-    const float bumpiness = 2;
+    // UV for inner rectangle
+    float2 uv_inner = (uv - 0.5) / innerScale + 0.5;
 
-    float2 uv_i = (uv - 0.5) / innerScale + 0.5;
+    // Color samples
+    float4 c_src = tex2D(sourceTex, uv_inner);
+    float4 c_bg = tex2D(bgTex, uv);
+    float4 c_light = LightGrid(sourceTex, uv_inner);
+    float3 c_canvas = tex2D(canvasTex, uv_inner).rgb;
 
-    float4 c_o = tex2D(blurTex, uv);
-    float4 c_i = tex2D(canvasTex, uv_i);
-    float4 c_l = LightGrid(sourceTex, uv_i) * float4(lightTint, 1);
-    float4 c_0 = tex2D(sourceTex, uv_i);
+    // Fading parameter (soften edges)
+    float2 fade_dist = length(max(0, abs(uv_inner * 2 - 1) - 1 + soften));
+    float fade = saturate(1 - fade_dist / soften);
 
-    float fade = saturate(1 - length(max(0, abs(uv_i * 2 - 1) - 1 + soften)) / soften);
+    // Canvas layer opacity
+    float opacity = saturate(dot(c_canvas, 1.0 / 3) / opacityParams.y) * opacityParams.x;
 
-    bool inside = all(uv_i > 0 && uv_i < 1);
-    float alpha = dot(c_i.rgb, 1) / 0.04;
-    alpha = saturate(alpha) * inside * 0.99;
+    // Albedo from canvas layer
+    outAlbedo = c_canvas * fade;
 
-    outAlbedo = c_i.rgb * fade;
-
-    outEmission = c_o * bgTint;
-    outEmission = lerp(outEmission, c_l.rgb, fade);
-    outEmission = lerp(outEmission, lerp(c_0, 1, 0.2) * 0.8 * outAlbedo, alpha * fade);
-
-    // Pseudo normal vector by albedo lightness
-    float level = length(outAlbedo);
-    float2 grad = float2(ddx(level), ddy(level));
-    outNormal = normalize(float3(-grad * bumpiness * alpha * fade, 1));
+    // Emission: BG layer / Light grid layer / Canvas layer
+    float3 e_bg = c_bg * bgTint;
+    float3 e_light = c_light.rgb * lightTint;
+    float3 e_canvas = (c_src * transParams.x + transParams.y) * c_canvas;
+    outEmission = lerp(e_bg, lerp(e_light, e_canvas, opacity), fade);
 }
