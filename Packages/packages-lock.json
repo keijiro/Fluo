@@ -253,6 +253,13 @@
       "dependencies": {},
       "url": "https://registry.npmjs.com"
     },
+    "jp.keijiro.test-assets": {
+      "version": "1.0.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.com"
+    },
     "jp.keijiro.urp-cameratextureutils": {
       "version": "file:jp.keijiro.urp-cameratextureutils",
       "depth": 0,

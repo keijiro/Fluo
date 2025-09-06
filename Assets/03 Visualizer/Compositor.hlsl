@@ -46,6 +46,8 @@ void CompositorCore_float
     out float3 outNormal
 )
 {
+    const float bumpiness = 2;
+
     float2 uv_i = (uv - 0.5) / innerScale + 0.5;
 
     float4 c_o = tex2D(blurTex, uv);
@@ -56,16 +58,17 @@ void CompositorCore_float
     float fade = saturate(1 - length(max(0, abs(uv_i * 2 - 1) - 1 + soften)) / soften);
 
     bool inside = all(uv_i > 0 && uv_i < 1);
-    float alpha = smoothstep(0, 0.04, dot(c_i.rgb, 1)) * inside;
-    alpha *= 0.95;
+    float alpha = dot(c_i.rgb, 1) / 0.04;
+    alpha = saturate(alpha) * inside * 0.99;
 
     outAlbedo = c_i.rgb * fade;
 
     outEmission = c_o * bgTint;
     outEmission = lerp(outEmission, c_l.rgb, fade);
-    outEmission = lerp(outEmission, (c_0 + 0.4) * outAlbedo, alpha * fade);
+    outEmission = lerp(outEmission, lerp(c_0, 1, 0.2) * 0.8 * outAlbedo, alpha * fade);
 
-    float h = length(outAlbedo);
-    float2 v = float2(ddx(h), ddy(h));
-    outNormal = normalize(float3(v * 10 * alpha * fade, 1));
+    // Pseudo normal vector by albedo lightness
+    float level = length(outAlbedo);
+    float2 grad = float2(ddx(level), ddy(level));
+    outNormal = normalize(float3(-grad * bumpiness * alpha * fade, 1));
 }
