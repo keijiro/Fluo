@@ -18,10 +18,10 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.9
+    m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 0.5
   scatter:
     m_OverrideState: 1
     m_Value: 0.8
@@ -107,7 +107,7 @@ MonoBehaviour:
     m_Value: 0
   streaksThreshold:
     m_OverrideState: 1
-    m_Value: 0.25
+    m_Value: 0
   resolution:
     m_OverrideState: 1
     m_Value: 2
