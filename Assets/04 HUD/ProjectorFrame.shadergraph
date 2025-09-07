@@ -393,8 +393,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -262.5,
-            "y": 253.0,
+            "x": -299.5,
+            "y": 251.0,
             "width": 217.5,
             "height": 94.0
         }
@@ -422,7 +422,7 @@
     "m_FunctionName": "FrameMain",
     "m_FunctionSource": "",
     "m_FunctionSourceUsePragmas": true,
-    "m_FunctionBody": "float x = UV.y;\nfloat t = _Time.y * 0.5;\nfloat p = Smootherstep(0.1, 1, frac(t));\nfloat mask = frac(x - p + 0.125) < 0.25;\nfloat blink = frac(t * 30) < 0.5;\nfloat amp = frac(t + 0.05) < 0.1 ? blink : 1;\nOutput = mask * amp;\n"
+    "m_FunctionBody": "float x = UV.y;\nfloat t = _Time.y * 0.25;\nfloat p = Smootherstep(0.4, 1, frac(t));\nOutput = frac(x - p + 0.25) < 0.5;"
 }
 
 {
@@ -765,10 +765,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -406.99993896484377,
-            "y": 252.99998474121095,
+            "x": -444.0,
+            "y": 251.0,
             "width": 145.0,
-            "height": 128.50001525878907
+            "height": 127.5
         }
     },
     "m_Slots": [
@@ -827,8 +827,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -150.0,
-            "y": 219.0,
+            "x": -187.0,
+            "y": 217.0,
             "width": 105.0,
             "height": 34.0
         }

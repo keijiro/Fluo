@@ -11,7 +11,8 @@
     "jp.keijiro.minibokeh": "1.2.0",
     "jp.keijiro.spectral-js-unity": "1.0.0",
     "jp.keijiro.test-assets": "1.0.1",
-    "jp.keijiro.vfxgraphassets": "3.9.1"
+    "jp.keijiro.vfxgraphassets": "3.9.1",
+    "com.unity.modules.animation": "1.0.0"
   },
   "scopedRegistries": [
     {
