@@ -1,0 +1,5 @@
+Label {
+    -unity-font-definition: url("project://database/Assets/00%20Common/UI/Kode_Mono/static/KodeMono-Regular.ttf?fileID=12800000&guid=62868cb1b67cc4eceb0a7e34dc175541&type=3#KodeMono-Regular");
+    font-size: 8px;
+    color: rgb(255, 255, 255);
+}
