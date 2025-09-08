@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/04%20HUD/HUD.uss?fileID=7433441132597879392&amp;guid=1b1512b2360724b3587d54b430c7b73e&amp;type=3#HUD" />
-    <ui:Label text="* System Link Established (00:00)&#10;* Core Sync Active&#10;* Target Lock Pending (*)" name="label1" style="position: absolute; left: 26px; top: 5px;" />
-    <ui:Label text="00 11 22 33 44 55 66 77 88" name="label2" style="position: absolute; -unity-text-align: upper-right; top: 5px; right: 26px;" />
-    <ui:Label text="Packet Stream: 44%&#10;Node Status: Stable&#10;Pattern Recognized" name="label3" style="position: absolute; right: 26px; bottom: 10px; -unity-text-align: upper-right;" />
+    <ui:Label text="* System Link Established (00:00)&#10;* Core Sync Active&#10;* Target Lock Pending (*)" name="label1" style="position: absolute; left: 16px; top: 4px;" />
+    <ui:Label text="00 11 22 33 44 55 66 77 88" name="label2" style="position: absolute; -unity-text-align: upper-right; top: 4px; right: 12px;" />
+    <ui:Label text="Packet Stream: 44%&#10;Node Status: Stable&#10;Pattern Recognized" name="label3" style="position: absolute; right: 12px; bottom: 6px; -unity-text-align: upper-right;" />
 </ui:UXML>

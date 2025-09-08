@@ -6,7 +6,7 @@ VisualEffectResource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Projector
+  m_Name: HUD
   m_Graph: {fileID: 114350483966674976}
   m_Infos:
     m_RendererSettings:
@@ -33,7 +33,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4c867f6b72b714dbb5fd1780afe208, type: 3}
-  m_Name: Projector
+  m_Name: HUD
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 0}
@@ -225,9 +225,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: 3057
-    y: -1829
+    y: -1828
     width: 3243
-    height: 2096
+    height: 2095
 --- !u!114 &114350483966675611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +329,7 @@ MonoBehaviour:
   - {fileID: 114350483966675643}
   - {fileID: 114350483966675647}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 114350483966675638}
   m_MasterData:
@@ -338,7 +338,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Transform, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":0.0,"y":0.0,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":1.0299999713897706,"y":1.059999942779541,"z":1.0}}'
+      m_SerializableObject: '{"position":{"x":0.0,"y":0.0,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":1.0,"y":1.0,"z":1.0}}'
     m_Space: 0
   m_Property:
     name: transform
@@ -5866,7 +5866,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Transform, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":-0.4300000071525574,"y":-0.46000000834465029,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.8700000047683716,"y":0.05000000074505806,"z":1.0}}'
+      m_SerializableObject: '{"position":{"x":-0.4399999976158142,"y":-0.46000000834465029,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.8700000047683716,"y":0.05000000074505806,"z":1.0}}'
     m_Space: 0
   m_Property:
     name: transform
