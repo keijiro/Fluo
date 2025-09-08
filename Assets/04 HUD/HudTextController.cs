@@ -6,6 +6,8 @@ public sealed class HudTextController : MonoBehaviour
     static readonly string[] _spinner = { "|", "/", "-", "\\", "*" };
 
     (Label e1, Label e2, Label e3) _labels;
+    float _timer;
+    int _count;
 
     void Start()
     {
@@ -18,19 +20,24 @@ public sealed class HudTextController : MonoBehaviour
 
     void Update()
     {
-        _labels.e1.text = GenerateLabel1();
-        _labels.e2.text = GenerateLabel2();
-        _labels.e3.text = GenerateLabel3();
+        if ((_timer += Time.deltaTime) > 0.05f)
+        {
+            _labels.e1.text = GenerateLabel1();
+            _timer -= 0.05f;
+        }
+
+        if (Random.value < 0.1f) _labels.e2.text = GenerateLabel2();
+        if (Random.value < 0.1f) _labels.e3.text = GenerateLabel3();
     }
 
     string GenerateLabel1()
     {
-        var n1 = Random.Range(0, 99);
-        var n2 = Random.Range(0, 99);
-        var s = _spinner[(int)(Time.time * 12) % 5];
+        var n1 = Time.time % 100;
+        var n2 = (Time.time * 11) % 100;
+        var s = _spinner[_count++ % 5];
         var text = $"* System Link Established ({n1:00}:{n2:00})\n";
         text += $"* Core Sync Active\n";
-        text += $"* Target Lock Pending ({s})";
+        text += $"* Target Lock Pending [{s}]";
         return text;
     }
 
