@@ -148,9 +148,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1552259773}
   - {fileID: 1830971289}
   - {fileID: 1996613657}
-  - {fileID: 1552259773}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &57649439
@@ -1320,7 +1320,7 @@ GameObject:
   - component: {fileID: 1100948196}
   - component: {fileID: 1100948197}
   m_Layer: 12
-  m_Name: HUD Post
+  m_Name: HUD Postprocess
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1966,7 +1966,7 @@ GameObject:
   - component: {fileID: 1552259774}
   - component: {fileID: 1552259775}
   m_Layer: 12
-  m_Name: UI
+  m_Name: HUD UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2437,7 +2437,7 @@ GameObject:
   - component: {fileID: 1830971289}
   - component: {fileID: 1830971290}
   m_Layer: 12
-  m_Name: Camera Lock
+  m_Name: HUD Camera Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2627,7 +2627,7 @@ GameObject:
   - component: {fileID: 1996613659}
   - component: {fileID: 1996613658}
   m_Layer: 12
-  m_Name: Surface
+  m_Name: HUD On-Plane VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
