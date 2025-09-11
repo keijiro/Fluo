@@ -44,9 +44,13 @@ public sealed class HudTextController : MonoBehaviour
     string GenerateLabel2()
     {
         var text = "";
-        for (var i = 0; i < 8; i++)
+        for (var i = 0; i < 3; i++)
         {
-            text += $" {Random.Range(0, 255):X2}";
+            for (var j = 0; j < 8; j++)
+            {
+                text += $" {Random.Range(0, 255):X2}";
+            }
+            text += "\n";
         }
         return text;
     }

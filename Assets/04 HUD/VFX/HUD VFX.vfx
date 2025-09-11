@@ -6,7 +6,7 @@ VisualEffectResource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HUD
+  m_Name: HUD VFX
   m_Graph: {fileID: 114350483966674976}
   m_Infos:
     m_RendererSettings:
@@ -33,7 +33,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4c867f6b72b714dbb5fd1780afe208, type: 3}
-  m_Name: HUD
+  m_Name: HUD VFX
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 0}
@@ -812,7 +812,7 @@ MonoBehaviour:
   m_Owners:
   - {fileID: 114350483966675636}
   m_Shader: {fileID: -6465566751694194690, guid: e4c0079f8168d43b4b1bb4c0e981f30f, type: 3}
-  m_ShaderName: Shader Graphs/ProjectorFrame
+  m_ShaderName: Shader Graphs/HUD Frame
 --- !u!114 &114350483966675659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6340,7 +6340,7 @@ MonoBehaviour:
   m_Owners:
   - {fileID: 114350483966675885}
   m_Shader: {fileID: -6465566751694194690, guid: 34c6aebf3383f46478b5c0e9cd6b3a29, type: 3}
-  m_ShaderName: Shader Graphs/ProjectorBarcode
+  m_ShaderName: Shader Graphs/HUD Barcode
 --- !u!114 &114350483966675918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11499,7 +11499,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Transform, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":0.7900000214576721,"y":0.054999999701976779,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.16500000655651093,"y":0.09281250089406967,"z":1.0}}'
+      m_SerializableObject: '{"position":{"x":0.7799999713897705,"y":0.054999999701976779,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.16500000655651093,"y":0.09281250089406967,"z":1.0}}'
     m_Space: 0
   m_Property:
     name: transform
@@ -11969,7 +11969,7 @@ MonoBehaviour:
   m_Owners:
   - {fileID: 114350483966676726}
   m_Shader: {fileID: -6465566751694194690, guid: d2008343d08ad4efeb67670da95bb97c, type: 3}
-  m_ShaderName: Shader Graphs/SourceMonitor
+  m_ShaderName: Shader Graphs/HUD SourceMonitor
 --- !u!114 &114350483966676750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12098,7 +12098,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Transform, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":0.7900000214576721,"y":-0.054999999701976779,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.16500000655651093,"y":0.09281250089406967,"z":1.0}}'
+      m_SerializableObject: '{"position":{"x":0.7799999713897705,"y":-0.054999999701976779,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.16500000655651093,"y":0.09281250089406967,"z":1.0}}'
     m_Space: 0
   m_Property:
     name: transform
@@ -12568,7 +12568,7 @@ MonoBehaviour:
   m_Owners:
   - {fileID: 114350483966676751}
   m_Shader: {fileID: -6465566751694194690, guid: d2008343d08ad4efeb67670da95bb97c, type: 3}
-  m_ShaderName: Shader Graphs/SourceMonitor
+  m_ShaderName: Shader Graphs/HUD SourceMonitor
 --- !u!114 &114350483966676774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12697,7 +12697,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Transform, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":0.7900000214576721,"y":0.054999999701976779,"z":-0.0010000000474974514},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.16500000655651093,"y":0.09399999678134918,"z":1.0}}'
+      m_SerializableObject: '{"position":{"x":0.7799999713897705,"y":0.054999999701976779,"z":-0.0010000000474974514},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.16500000655651093,"y":0.09399999678134918,"z":1.0}}'
     m_Space: 0
   m_Property:
     name: transform
@@ -13167,7 +13167,7 @@ MonoBehaviour:
   m_Owners:
   - {fileID: 114350483966676775}
   m_Shader: {fileID: -6465566751694194690, guid: 898982bac307c462e8f3b512a52ac594, type: 3}
-  m_ShaderName: Shader Graphs/Line
+  m_ShaderName: Shader Graphs/HUD Line
 --- !u!114 &114350483966677248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13262,7 +13262,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Transform, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":0.7900000214576721,"y":-0.054999999701976779,"z":-0.0010000000474974514},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.16500000655651093,"y":0.09399999678134918,"z":1.0}}'
+      m_SerializableObject: '{"position":{"x":0.7799999713897705,"y":-0.054999999701976779,"z":-0.0010000000474974514},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.16500000655651093,"y":0.09399999678134918,"z":1.0}}'
     m_Space: 0
   m_Property:
     name: transform
@@ -13732,7 +13732,7 @@ MonoBehaviour:
   m_Owners:
   - {fileID: 114350483966677248}
   m_Shader: {fileID: -6465566751694194690, guid: 898982bac307c462e8f3b512a52ac594, type: 3}
-  m_ShaderName: Shader Graphs/Line
+  m_ShaderName: Shader Graphs/HUD Line
 --- !u!114 &114350483966677281
 MonoBehaviour:
   m_ObjectHideFlags: 0
