@@ -6,6 +6,13 @@ namespace Fluo {
 
 public sealed class Prefilter : MonoBehaviour
 {
+    #region Public properties
+
+    [field:SerializeField, Range(0, 1)]
+    public float LutBlend { get; set; } = 1;
+
+    #endregion
+
     #region Editable attributes
 
     [SerializeField] ImageSource _source = null;
@@ -49,6 +56,7 @@ public sealed class Prefilter : MonoBehaviour
 
         _material.SetTexture(ShaderID.BodyPixTex, _detector.MaskTexture);
         _material.SetTexture(ShaderID.LutTex, _lutTexture);
+        _material.SetFloat(ShaderID.LutBlend, LutBlend);
 
         // Multiplexing: Color grading and human stencil
         Graphics.Blit(_source.AsTexture, _multiplexOut, _material, 0);

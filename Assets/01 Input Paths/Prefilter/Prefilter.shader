@@ -18,9 +18,18 @@ TEXTURE2D(_MainTex);
 float4 _MainTex_TexelSize;
 
 TEXTURE3D(_LutTex);
+float _LutBlend;
 
 TEXTURE2D(_BodyPixTex);
 float4 _BodyPixTex_TexelSize;
+
+// LUT application
+float3 ApplyLut(float3 input)
+{
+    float3 srgb = LinearToSRGB(input);
+    float3 graded = SAMPLE_TEXTURE3D(_LutTex, sampler_LinearClamp, srgb).rgb;
+    return SRGBToLinear(lerp(srgb, graded, _LutBlend));
+}
 
 // 17-tap Gaussian blur with bilinear pairing
 float4 Blur17(float2 uv, float2 step)
@@ -78,14 +87,13 @@ float4 FragmentMultiplex(float4 positionCS : SV_POSITION,
                          float2 uv : TEXCOORD0) : SV_Target
 {
     // Input + LUT
-    float3 srgb = LinearToSRGB(SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv).rgb);
-    float3 graded = SRGBToLinear(SAMPLE_TEXTURE3D(_LutTex, sampler_LinearClamp, srgb).rgb);
+    float3 color = ApplyLut(SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv).rgb);
 
     // Human stencil
     BodyPix_Mask mask = BodyPix_SampleMask(uv, _BodyPixTex, _BodyPixTex_TexelSize.zw);
     float alpha = smoothstep(0.4, 0.6, BodyPix_EvalSegmentation(mask));
 
-    return float4(graded, alpha);
+    return float4(color, alpha);
 }
 
 // Fragment shader: Horizontal blur pass
