@@ -136,8 +136,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 0.0,
-            "y": 200.0
+            "x": -0.000015735626220703125,
+            "y": 238.0
         },
         "m_Blocks": [
             {
@@ -547,9 +547,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -209.0,
-            "y": 238.0,
-            "width": 129.5,
+            "x": -182.4999542236328,
+            "y": 237.99993896484376,
+            "width": 129.50001525878907,
             "height": 118.0
         }
     },
@@ -676,10 +676,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -476.0,
-            "y": 108.0,
+            "x": -435.99993896484377,
+            "y": 75.99999237060547,
             "width": 183.0,
-            "height": 248.0
+            "height": 247.99996948242188
         }
     },
     "m_Slots": [
@@ -890,10 +890,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -620.0,
-            "y": 604.0,
+            "x": -576.4999389648438,
+            "y": 571.9999389648438,
             "width": 105.0,
-            "height": 34.0
+            "height": 33.99993896484375
         }
     },
     "m_Slots": [
@@ -926,10 +926,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -698.0,
-            "y": 356.0,
+            "x": -654.4999389648438,
+            "y": 323.9999694824219,
             "width": 183.0,
-            "height": 248.0
+            "height": 247.99996948242188
         }
     },
     "m_Slots": [
@@ -1082,7 +1082,7 @@
     "m_AlphaMode": 0,
     "m_RenderFace": 2,
     "m_AlphaClip": false,
-    "m_CastShadows": true,
+    "m_CastShadows": false,
     "m_ReceiveShadows": true,
     "m_DisableTint": false,
     "m_AdditionalMotionVectorMode": 0,
@@ -1134,9 +1134,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -422.5,
-            "y": 446.5000305175781,
-            "width": 129.5,
+            "x": -382.4999694824219,
+            "y": 422.4999694824219,
+            "width": 129.50003051757813,
             "height": 117.99996948242188
         }
     },

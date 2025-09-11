@@ -3,10 +3,8 @@ using UnityEngine.InputSystem;
 
 namespace Fluo {
 
-public sealed class MonitorSwitcher : MonoBehaviour
+public sealed class DebugViewSwitcher : MonoBehaviour
 {
-    [SerializeField] Camera _targetCamera = null;
-    [SerializeField] Renderer _targetRenderer = null;
     [SerializeField] InputAction _switchInput = null;
 
     async Awaitable WaitSwitchAsync()
@@ -17,6 +15,7 @@ public sealed class MonitorSwitcher : MonoBehaviour
 
     async Awaitable Start()
     {
+        var renderer = GetComponent<Renderer>();
         var props = new MaterialPropertyBlock();
 
         _switchInput.Enable();
@@ -26,17 +25,17 @@ public sealed class MonitorSwitcher : MonoBehaviour
             await WaitSwitchAsync();
 
             props.SetInteger(ShaderID.Alternate, 0);
-            _targetRenderer.SetPropertyBlock(props);
-            _targetCamera.enabled = true;
+            renderer.SetPropertyBlock(props);
+            renderer.enabled = true;
 
             await WaitSwitchAsync();
 
-            props.SetInteger("_Alternate", 1);
-            _targetRenderer.SetPropertyBlock(props);
+            props.SetInteger(ShaderID.Alternate, 1);
+            renderer.SetPropertyBlock(props);
 
             await WaitSwitchAsync();
 
-            _targetCamera.enabled = false;
+            renderer.enabled = false;
         }
     }
 }
