@@ -386,7 +386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 442345072}
   m_Layer: 0
-  m_Name: 01 Input Paths
+  m_Name: 01 Input
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,8 +487,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 698496327}
   - {fileID: 1361512632}
+  - {fileID: 698496327}
   m_Father: {fileID: 442345072}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &635178401
@@ -2339,7 +2339,7 @@ GameObject:
   - component: {fileID: 1927639330}
   - component: {fileID: 1927639331}
   m_Layer: 0
-  m_Name: Force Field RT Driver
+  m_Name: Force Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
