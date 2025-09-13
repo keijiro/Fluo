@@ -1,10 +1,18 @@
 using UnityEngine;
 using Klak.Motion;
+using System;
 
 namespace Fluo {
 
 public sealed class CameraController : MonoBehaviour
 {
+    [Serializable]
+    struct AngleSetting
+    {
+        public float baseAngle;
+        public Vector3 rotation;
+    }
+
     [SerializeField] Transform _targetBase = null;
     [SerializeField] BrownianMotion _targetMotion = null;
     [SerializeField] Transform _rotationBase = null;
@@ -13,10 +21,7 @@ public sealed class CameraController : MonoBehaviour
     [SerializeField] BrownianMotion _distanceMotion = null;
     [Space]
     [SerializeField] Vector2[] _distanceRanges = null;
-
-    public void SetAngleMode(int mode)
-    {
-    }
+    [SerializeField] AngleSetting[] _angleSettings = null;
 
     public void SetDistanceMode(int mode)
     {
@@ -25,6 +30,22 @@ public sealed class CameraController : MonoBehaviour
         var dz = (range.y - range.x) * 0.5f;
         _distanceBase.localPosition = new Vector3(0, 0, z);
         _distanceMotion.positionAmount = new Vector3(0, 0, dz);
+    }
+
+    public void SetAngleMode(int mode)
+    {
+        ref var setting = ref _angleSettings[mode];
+
+        _rotationBase.localRotation =
+          Quaternion.AngleAxis(90 - setting.baseAngle, Vector3.right);
+
+        _rotationMotion.rotationAmount = setting.rotation;
+    }
+
+    void Start()
+    {
+        SetDistanceMode(0);
+        SetAngleMode(0);
     }
 }
 
