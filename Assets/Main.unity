@@ -1607,9 +1607,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1145353202}
+  - component: {fileID: 1145353203}
   - component: {fileID: 1145353201}
   m_Layer: 0
-  m_Name: Canvas RT Driver
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1643,6 +1644,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1318272883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1145353203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145353200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 633fe27e02b8c4838bb34358a5626b84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <AlphaDecay>k__BackingField: 1
 --- !u!1 &1157978347
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,6 +21,8 @@ TEXTURE2D(_VelocityTex);
 SAMPLER(sampler_VelocityTex);
 float4 _VelocityTex_TexelSize;
 
+float _Fluo_CanvasAlphaDecay;
+
 half4 fragUpdate(CustomRenderTextureVaryings i) : SV_Target
 {
     float2 uv = i.globalTexcoord.xy;
@@ -45,7 +47,11 @@ half4 fragUpdate(CustomRenderTextureVaryings i) : SV_Target
     // Color blending
     float3 c = SpectralMix(c0.rgb, 1 - c1.a, c1.rgb, c1.a);
 
-    return float4(c, 1);
+    // Alpha decay
+    float decay = _Fluo_CanvasAlphaDecay * unity_DeltaTime.x;
+    float a = lerp(c0.a - decay, 1, c1.a);
+
+    return float4(c, a);
 }
 
     ENDHLSL

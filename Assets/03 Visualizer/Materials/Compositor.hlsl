@@ -64,21 +64,21 @@ void CompositorCore_float
     float4 c_src = tex2D(sourceTex, uv_inner);
     float4 c_bg = tex2D(bgTex, uv);
     float4 c_light = LightGrid(sourceTex, uv_inner);
-    float3 c_canvas = tex2D(canvasTex, uv_inner).rgb;
+    float4 c_canvas = tex2D(canvasTex, uv_inner);
 
     // Fading parameter (soften edges)
     float2 fade_dist = length(max(0, abs(uv_inner * 2 - 1) - 1 + soften));
     float fade = saturate(1 - fade_dist / soften);
 
     // Canvas layer opacity
-    float opacity = saturate(dot(c_canvas, 1.0 / 3) / opacityParams.y) * opacityParams.x;
+    float opacity = saturate(c_canvas.a / opacityParams.y) * opacityParams.x;
 
     // Albedo from canvas layer
-    outAlbedo = c_canvas * fade;
+    outAlbedo = c_canvas.rgb * fade;
 
     // Emission: BG layer / Light grid layer / Canvas layer
     float3 e_bg = c_bg * bgTint;
     float3 e_light = c_light.rgb * lightTint;
-    float3 e_canvas = (c_src * transParams.x + transParams.y) * c_canvas;
+    float3 e_canvas = (c_src * transParams.x + transParams.y) * c_canvas.rgb;
     outEmission = lerp(e_bg, lerp(e_light, e_canvas, opacity), fade);
 }
