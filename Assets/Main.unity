@@ -304,6 +304,77 @@ Transform:
   - {fileID: 1095850186}
   m_Father: {fileID: 2039775323}
   m_LocalEulerAnglesHint: {x: 15, y: 75, z: 0}
+--- !u!1 &180270166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 180270167}
+  - component: {fileID: 180270168}
+  m_Layer: 0
+  m_Name: VFX 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &180270167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180270166}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1743194680}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &180270168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180270166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a577e986d234e1c9669692b49b1732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 1209117116}
+  _throttleSource:
+    m_Name: Throttle Source
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b55b26c6-5dc7-48da-98d5-33f42dc59ec7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  _toggleButton:
+    m_Name: Toggle Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: bff5d8e2-c660-442c-85cd-de234054699f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: c9a0b242-5434-457a-9292-fbebeb06075f
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Toggle Button
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &187438486
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +487,7 @@ MonoBehaviour:
       m_Action: Action
       m_Flags: 0
     m_Flags: 0
-  _event:
+  _onEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 26578945}
@@ -431,6 +502,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _offEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &348662613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,7 +534,7 @@ MonoBehaviour:
       m_Action: Action
       m_Flags: 0
     m_Flags: 0
-  _event:
+  _onEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 26578945}
@@ -475,6 +549,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _offEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &348662614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,7 +581,7 @@ MonoBehaviour:
       m_Action: Action
       m_Flags: 0
     m_Flags: 0
-  _event:
+  _onEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 26578945}
@@ -519,6 +596,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _offEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &437815214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,6 +2208,77 @@ MonoBehaviour:
   _motionTarget: {fileID: 8400000, guid: d385f0ce86dfa402d83404372387fb3d, type: 2}
   _depthEncoding: 0
   _motionEncoding: 0
+--- !u!1 &1361952186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1361952187}
+  - component: {fileID: 1361952188}
+  m_Layer: 0
+  m_Name: VFX 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1361952187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361952186}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1743194680}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1361952188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361952186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a577e986d234e1c9669692b49b1732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 657327188}
+  _throttleSource:
+    m_Name: Throttle Source
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b55b26c6-5dc7-48da-98d5-33f42dc59ec7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  _toggleButton:
+    m_Name: Toggle Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: bff5d8e2-c660-442c-85cd-de234054699f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: c9a0b242-5434-457a-9292-fbebeb06075f
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Toggle Button
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &1364856413
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,10 +2454,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1364856414}
   - {fileID: 657327186}
   - {fileID: 1027370947}
   - {fileID: 1209117114}
-  - {fileID: 1364856414}
   m_Father: {fileID: 1826498264}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1551801277
@@ -2628,6 +2779,77 @@ MonoBehaviour:
   frequency: 0.05
   octaves: 1
   seed: 3221
+--- !u!1 &1679158287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1679158288}
+  - component: {fileID: 1679158289}
+  m_Layer: 0
+  m_Name: VFX 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1679158288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679158287}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1743194680}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1679158289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679158287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a577e986d234e1c9669692b49b1732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 1027370949}
+  _throttleSource:
+    m_Name: Throttle Source
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b55b26c6-5dc7-48da-98d5-33f42dc59ec7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  _toggleButton:
+    m_Name: Toggle Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: bff5d8e2-c660-442c-85cd-de234054699f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: c9a0b242-5434-457a-9292-fbebeb06075f
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Toggle Button
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &1709215336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2808,6 +3030,9 @@ Transform:
   m_Children:
   - {fileID: 348662611}
   - {fileID: 1973581786}
+  - {fileID: 1361952187}
+  - {fileID: 1679158288}
+  - {fileID: 180270167}
   m_Father: {fileID: 442345072}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1786960694
@@ -3217,7 +3442,7 @@ MonoBehaviour:
       m_Action: Action
       m_Flags: 0
     m_Flags: 0
-  _event:
+  _onEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 26578945}
@@ -3232,6 +3457,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _offEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1973581788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3261,7 +3489,7 @@ MonoBehaviour:
       m_Action: Action
       m_Flags: 0
     m_Flags: 0
-  _event:
+  _onEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 26578945}
@@ -3276,6 +3504,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _offEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1973581789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3305,7 +3536,7 @@ MonoBehaviour:
       m_Action: Action
       m_Flags: 0
     m_Flags: 0
-  _event:
+  _onEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 26578945}
@@ -3320,6 +3551,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _offEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1996613656
 GameObject:
   m_ObjectHideFlags: 0
