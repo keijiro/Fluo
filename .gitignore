@@ -3,23 +3,16 @@ Desktop.ini
 .DS_Store
 *.swp
 
-/Library
-/Logs
-/Recordings
-/Temp
-/UIElementsSchema
-/UserSettings
+/Fluo*/Library
+/Fluo*/Logs
+/Fluo*/Recordings
+/Fluo*/Temp
+/Fluo*/UIElementsSchema
+/Fluo*/UserSettings
+/Fluo*/.utmp
+/Fluo*/mono_crash.*.json
 
-/.utmp
-/mono_crash.*.json
-/Xcode
-
-/*.app
-/*.exe
-/*.apk
-/*_DoNotShip
-
-/Test.mp4
-
-/Assets/Main
-/Assets/Main.meta
+/FluoController/Xcode
+/FluoVisualizer/Test.mp4
+/FluoVisualizer/Assets/Main
+/FluoVisualizer/Assets/Main.meta
