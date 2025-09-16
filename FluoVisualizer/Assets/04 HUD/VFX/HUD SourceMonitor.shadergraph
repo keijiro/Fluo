@@ -867,7 +867,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "EffectMain (Custom Function)",
+    "m_Name": "SourceMonitor (Custom Function)",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -904,7 +904,7 @@
         "m_SerializableColors": []
     },
     "m_SourceType": 0,
-    "m_FunctionName": "EffectMain",
+    "m_FunctionName": "SourceMonitor",
     "m_FunctionSource": "b1ff344eeadc046fd91bdbd5e03bf329",
     "m_FunctionSourceUsePragmas": true,
     "m_FunctionBody": "Enter function body here..."
