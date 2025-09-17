@@ -716,6 +716,7 @@ Transform:
   m_Children:
   - {fileID: 1743194680}
   - {fileID: 845794254}
+  - {fileID: 1151194791}
   - {fileID: 634989432}
   - {fileID: 1927639330}
   m_Father: {fileID: 0}
@@ -1293,9 +1294,11 @@ GameObject:
   m_Component:
   - component: {fileID: 845794254}
   - component: {fileID: 845794253}
+  - component: {fileID: 845794256}
   - component: {fileID: 845794255}
+  - component: {fileID: 845794257}
   m_Layer: 0
-  m_Name: Video Input
+  m_Name: NDI Receiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1314,15 +1317,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _generatorShader: {fileID: 4800000, guid: 3f7d8db4748f54c638a46cec0b0e61f8, type: 3}
-  _ndiResources: {fileID: 0}
-  _sourceType: 8
+  _ndiResources: {fileID: 11400000, guid: 69304b86950074db7ba8caba75214004, type: 2}
+  _sourceType: 6
   _outputResolution: {x: 640, y: 360}
   _outputDestination: {fileID: 0}
   <SourceTexture>k__BackingField: {fileID: 0}
   _sourceVideo: {fileID: 0}
   <SourceCamera>k__BackingField: {fileID: 0}
   _sourceUrl: file://Test.mp4
-  _sourceName: 
+  _sourceName: LOCALHOST (Camera)
   _deviceResolution: {x: 0, y: 0}
   _deviceFrameRate: 0
 --- !u!4 &845794254
@@ -1349,16 +1352,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 845794251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d089d6f21d1c54409a202d3543abd030, type: 3}
+  m_Script: {fileID: 11500000, guid: b5c0fdfedc20e4ba4809b4961f2a3b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LutBlend>k__BackingField: 0
-  _source: {fileID: 845794253}
-  _resources: {fileID: 11400000, guid: 4f9330a89914fac438cb63225f3b6e25, type: 2}
-  _lutTexture: {fileID: 8534537815417165676, guid: 244beb38c4aca46d38429ea743939884, type: 3}
-  _multiplexOut: {fileID: 8400000, guid: 37803c379327143aa8406be400659a40, type: 2}
-  _blurOut: {fileID: 8400000, guid: 6d309fe91d13843f19bcb102be8f97be, type: 2}
-  _shader: {fileID: 4800000, guid: 1ae4b41edd9634b209ed897ad2e95cc7, type: 3}
+--- !u!114 &845794256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845794251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c855b89dc447940beb7af64fe7a12d35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &845794257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845794251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6c17e0f92834e3982fb293e3206520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1027370946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,6 +1774,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <AlphaDecay>k__BackingField: 1
+--- !u!1 &1151194790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1151194791}
+  - component: {fileID: 1151194792}
+  m_Layer: 0
+  m_Name: Prefilter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1151194791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151194790}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 442345072}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1151194792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151194790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d089d6f21d1c54409a202d3543abd030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <LutBlend>k__BackingField: 1
+  _source: {fileID: 845794253}
+  _resources: {fileID: 11400000, guid: 4f9330a89914fac438cb63225f3b6e25, type: 2}
+  _lutTexture: {fileID: 8534537815417165676, guid: 244beb38c4aca46d38429ea743939884, type: 3}
+  _multiplexOut: {fileID: 8400000, guid: 37803c379327143aa8406be400659a40, type: 2}
+  _blurOut: {fileID: 8400000, guid: 6d309fe91d13843f19bcb102be8f97be, type: 2}
+  _shader: {fileID: 4800000, guid: 1ae4b41edd9634b209ed897ad2e95cc7, type: 3}
 --- !u!1 &1157978347
 GameObject:
   m_ObjectHideFlags: 0
