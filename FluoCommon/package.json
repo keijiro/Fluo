@@ -1,0 +1,11 @@
+{
+    "author": "Keijiro Takahashi",
+    "dependencies": { },
+    "description": "The common components of Fluo.",
+    "displayName": "Fluo Common",
+    "keywords": [ "unity" ],
+    "name": "jp.keijiro.fluo.common",
+    "unity": "6000.0",
+    "unityRelease": "0f1",
+    "version": "1.0.0"
+}

@@ -1,0 +1,11 @@
+.control-section-label {
+    position: absolute;
+    top: -26px;
+    font-size: 16px;
+    color: rgb(207, 207, 207);
+}
+
+.control-section {
+    flex-direction: row;
+    flex-grow: 1;
+}

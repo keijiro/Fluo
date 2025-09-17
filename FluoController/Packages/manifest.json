@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "com.unity.device-simulator.devices": "1.0.0",
+    "com.unity.inputsystem": "1.14.2",
+    "jp.keijiro.fluo.common": "file:../../FluoCommon",
+    "jp.keijiro.klak.ndi": "2.1.5",
+    "jp.keijiro.vjuitk": "1.2.0",
+    "com.unity.modules.audio": "1.0.0"
+  },
+  "scopedRegistries": [
+    {
+      "name": "Keijiro",
+      "url": "https://registry.npmjs.com",
+      "scopes": [
+        "jp.keijiro"
+      ]
+    }
+  ]
+}
