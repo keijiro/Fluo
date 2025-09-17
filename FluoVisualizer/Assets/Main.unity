@@ -1295,8 +1295,6 @@ GameObject:
   - component: {fileID: 845794254}
   - component: {fileID: 845794253}
   - component: {fileID: 845794256}
-  - component: {fileID: 845794255}
-  - component: {fileID: 845794257}
   m_Layer: 0
   m_Name: NDI Receiver
   m_TagString: Untagged
@@ -1343,18 +1341,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 442345072}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &845794255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845794251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5c0fdfedc20e4ba4809b4961f2a3b23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &845794256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1365,18 +1351,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c855b89dc447940beb7af64fe7a12d35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &845794257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845794251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e6c17e0f92834e3982fb293e3206520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1027370946
@@ -2332,7 +2306,15 @@ MonoBehaviour:
     m_Id: b55b26c6-5dc7-48da-98d5-33f42dc59ec7
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: e1bfe317-f9f1-40a7-83b0-37e4fcd00d5f
+      m_Path: <RemoteInputDevice>/knob0
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Throttle Source
+      m_Flags: 0
     m_Flags: 0
   _toggleButton:
     m_Name: Toggle Button

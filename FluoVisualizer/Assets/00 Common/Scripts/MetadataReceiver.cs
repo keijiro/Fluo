@@ -1,4 +1,7 @@
+using System;
+using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Fluo {
 
@@ -15,8 +18,14 @@ public sealed class MetadataReceiver : MonoBehaviour
         if (xml == null || xml.Length == 0) return;
         var bin = Metadata.Deserialize(xml);
 
-        // Input state update with the metadata
-        GetComponent<InputHandle>().InputState = bin.InputState;
+        // Update RemoteInputDevice via InputSystem
+        if (RemoteInputDevice.current != null)
+        {
+            var inputState = bin.InputState;
+            var bytes = MemoryMarshal.AsBytes(MemoryMarshal.CreateSpan(ref inputState, 1));
+            var remoteState = MemoryMarshal.Read<RemoteInputState>(bytes);
+            InputSystem.QueueStateEvent(RemoteInputDevice.current, remoteState);
+        }
     }
 }
 

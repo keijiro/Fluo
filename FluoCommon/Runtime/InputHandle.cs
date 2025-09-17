@@ -94,47 +94,41 @@ public sealed class InputHandle : MonoBehaviour
 
     public InputState InputState { get => MakeInputState(); set => UpdateState(value); }
 
-    InputState MakeInputState()
+    unsafe InputState MakeInputState()
     {
         var state = new InputState();
 
-        for (var i = 0; i < 2; i++)
-        {
-            var bdata = 0;
-            var tdata = 0;
-
-            for (var bit = 0; bit < 8; bit++)
-            {
-                if (_buttons[8 * i + bit]) bdata += 1 << bit;
-                if (_toggles[8 * i + bit]) tdata += 1 << bit;
-            }
-
-            state.SetButtonData(i, bdata);
-            state.SetToggleData(i, tdata);
-        }
+        ushort bdata = 0;
+        ushort tdata = 0;
 
         for (var i = 0; i < 16; i++)
-            state.SetKnobData(i, (int)(_knobs[i] * 255));
+        {
+            if (_buttons[i]) bdata |= (ushort)(1 << i);
+            if (_toggles[i]) tdata |= (ushort)(1 << i);
+        }
+
+        state.Buttons = bdata;
+        state.Toggles = tdata;
+
+        for (var i = 0; i < 16; i++)
+            state.Knobs[i] = (byte)(_knobs[i] * 255);
 
         return state;
     }
 
-    void UpdateState(in InputState state)
+    unsafe void UpdateState(in InputState state)
     {
-        for (var i = 0; i < 2; i++)
-        {
-            var bdata = state.GetButtonData(i);
-            var tdata = state.GetToggleData(i);
+        var bdata = state.Buttons;
+        var tdata = state.Toggles;
 
-            for (var bit = 0; bit < 8; bit++)
-            {
-                _buttons[8 * i + bit] = (bdata & (1 << bit)) != 0;
-                _toggles[8 * i + bit] = (tdata & (1 << bit)) != 0;
-            }
+        for (var i = 0; i < 16; i++)
+        {
+            _buttons[i] = (bdata & (1 << i)) != 0;
+            _toggles[i] = (tdata & (1 << i)) != 0;
         }
 
         for (var i = 0; i < 16; i++)
-            _knobs[i] = state.GetKnobData(i) / 255.0f;
+            _knobs[i] = state.Knobs[i] / 255.0f;
     }
 
     #endregion
