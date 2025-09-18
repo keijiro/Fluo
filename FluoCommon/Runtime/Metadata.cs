@@ -3,17 +3,15 @@ using System.Runtime.InteropServices;
 
 namespace Fluo {
 
-// Fluo Metadata struct
-[StructLayout(LayoutKind.Sequential)]
-public unsafe readonly struct Metadata
+public readonly struct Metadata
 {
     #region Data members
 
     // Control input state
-    public readonly InputState InputState;
+    public readonly RemoteInputState InputState;
 
     // Constructor
-    public Metadata(InputState inputState)
+    public Metadata(RemoteInputState inputState)
       => InputState = inputState;
 
     #endregion

@@ -1,6 +1,6 @@
 {
     "author": "Keijiro Takahashi",
-    "dependencies": { },
+    "dependencies": { "com.unity.inputsystem": "1.14.2" },
     "description": "The common components of Fluo.",
     "displayName": "Fluo Common",
     "keywords": [ "unity" ],

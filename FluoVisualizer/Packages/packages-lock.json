@@ -41,7 +41,7 @@
     },
     "com.unity.inputsystem": {
       "version": "1.14.2",
-      "depth": 0,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.uielements": "1.0.0"
@@ -178,7 +178,9 @@
       "version": "file:../../FluoCommon",
       "depth": 0,
       "source": "local",
-      "dependencies": {}
+      "dependencies": {
+        "com.unity.inputsystem": "1.14.2"
+      }
     },
     "jp.keijiro.klak.motion": {
       "version": "1.1.0",
@@ -314,7 +316,7 @@
     },
     "com.unity.modules.hierarchycore": {
       "version": "1.0.0",
-      "depth": 2,
+      "depth": 3,
       "source": "builtin",
       "dependencies": {}
     },
@@ -326,7 +328,7 @@
     },
     "com.unity.modules.imgui": {
       "version": "1.0.0",
-      "depth": 2,
+      "depth": 3,
       "source": "builtin",
       "dependencies": {}
     },
@@ -364,7 +366,7 @@
     },
     "com.unity.modules.uielements": {
       "version": "1.0.0",
-      "depth": 1,
+      "depth": 2,
       "source": "builtin",
       "dependencies": {
         "com.unity.modules.ui": "1.0.0",

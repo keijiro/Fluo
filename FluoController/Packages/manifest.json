@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "com.unity.device-simulator.devices": "1.0.0",
-    "com.unity.inputsystem": "1.14.2",
     "jp.keijiro.fluo.common": "file:../../FluoCommon",
     "jp.keijiro.klak.ndi": "2.1.5",
     "jp.keijiro.vjuitk": "1.2.0",

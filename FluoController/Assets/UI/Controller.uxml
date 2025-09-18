@@ -1,6 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Controller.uss?fileID=7433441132597879392&amp;guid=b36b7ae5b6d46491380e138eaaf62a9c&amp;type=3#Controller" />
-    <engine:VisualElement name="monitor" style="background-image: url(&quot;project://database/Assets/Misc/Camera.renderTexture?fileID=8400000&amp;guid=92ce0328f74b3423798d76e14a1b8648&amp;type=2#Camera&quot;); -unity-background-scale-mode: scale-to-fit; position: absolute; top: 0; left: 0; right: 0; bottom: 0; -unity-background-image-tint-color: rgb(101, 101, 101);" />
+    <engine:VisualElement name="monitor" style="background-image: url(&quot;project://database/Assets/Misc/Webcam.renderTexture?fileID=8400000&amp;guid=92ce0328f74b3423798d76e14a1b8648&amp;type=2#Webcam&quot;); -unity-background-scale-mode: scale-to-fit; position: absolute; top: 0; left: 0; right: 0; bottom: 0; -unity-background-image-tint-color: rgb(101, 101, 101);" />
     <engine:VisualElement name="controller" style="position: absolute; top: 40px; bottom: 40px; left: 100px; right: 100px;">
         <engine:VisualElement name="row" style="flex-grow: 1; flex-direction: row;">
             <engine:VisualElement name="section" class="control-section">
@@ -62,10 +62,6 @@
             <VJUITK.VJButton label="Wide" name="camera-wide" />
             <VJUITK.VJButton label="Tele" name="camera-telephoto" />
         </engine:VisualElement>
-        <engine:Label text="00:00:00" name="clock" data-source-type="Fluo.Clock, Assembly-CSharp" style="position: absolute; right: 0; color: rgb(255, 255, 255); top: 0; font-size: 24px;">
-            <Bindings>
-                <engine:DataBinding property="text" data-source-path="TimeText" binding-mode="ToTarget" />
-            </Bindings>
-        </engine:Label>
+        <engine:Label text="00:00:00" name="clock" style="position: absolute; right: 0; color: rgb(255, 255, 255); top: 0; font-size: 24px;" />
     </engine:VisualElement>
 </engine:UXML>

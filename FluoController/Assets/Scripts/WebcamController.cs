@@ -4,8 +4,9 @@ using VJUITK;
 
 namespace Fluo {
 
-public sealed class CameraSwitcher : MonoBehaviour
+public sealed class WebcamController : MonoBehaviour
 {
+    [SerializeField] UIDocument _inputSource = null;
     [SerializeField] RenderTexture _target = null;
 
     static readonly string[] DeviceNames =
@@ -22,7 +23,7 @@ public sealed class CameraSwitcher : MonoBehaviour
 
     async Awaitable Start()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
+        var root = _inputSource.rootVisualElement;
 
         // Camera button callbacks
         root.Q<VJButton>("camera-telephoto").Clicked += () => SelectCamera(0);
