@@ -4,6 +4,10 @@ using UnityEngine.InputSystem.Layouts;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Utilities;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 namespace Fluo {
 
 // Remote input device definition for Unity Input System
@@ -73,6 +77,9 @@ public unsafe struct RemoteInputState : IInputStateTypeInfo
 }
 
 // Input device class
+#if UNITY_EDITOR
+[InitializeOnLoad]
+#endif
 [InputControlLayout(stateType = typeof(RemoteInputState))]
 public class RemoteInputDevice : InputDevice
 {
@@ -90,14 +97,24 @@ public class RemoteInputDevice : InputDevice
         if (current == this) current = null;
     }
 
-    static RemoteInputDevice()
-      => InputSystem.RegisterLayout<RemoteInputDevice>();
+#if UNITY_EDITOR
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    static void Initialize()
+    static RemoteInputDevice()
     {
+        InputSystem.RegisterLayout<RemoteInputDevice>();
         if (current == null) InputSystem.AddDevice<RemoteInputDevice>();
     }
+
+#else
+
+    [RuntimeInitializeOnLoadMethod]
+    static void Initialize()
+    {
+        InputSystem.RegisterLayout<RemoteInputDevice>();
+        if (current == null) InputSystem.AddDevice<RemoteInputDevice>();
+    }
+
+#endif
 }
 
 } // namespace Fluo
