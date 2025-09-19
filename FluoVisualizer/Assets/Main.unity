@@ -1294,9 +1294,11 @@ GameObject:
   m_Component:
   - component: {fileID: 845794254}
   - component: {fileID: 845794253}
+  - component: {fileID: 845794258}
   - component: {fileID: 845794256}
+  - component: {fileID: 845794257}
   m_Layer: 0
-  m_Name: NDI Receiver
+  m_Name: Video Input
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1351,6 +1353,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c855b89dc447940beb7af64fe7a12d35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &845794257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845794251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 141d92ae30b9441fe93cdc3288ba4174, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 634a0d38341b14881ab8595661d63466, type: 3}
+  m_SortingOrder: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+--- !u!114 &845794258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845794251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f886c7d4e05eb4092ba23f3c6f1ac4c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1027370946
