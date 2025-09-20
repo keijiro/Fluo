@@ -11,6 +11,8 @@ namespace Fluo {
 
 public sealed class SourceSelector : MonoBehaviour
 {
+    [SerializeField] ImageSource _imageSource = null;
+
     #region Data source accessor for UI Toolkit
 
     [CreateProperty]
@@ -53,16 +55,15 @@ public sealed class SourceSelector : MonoBehaviour
       => GetComponent<UIDocument>().rootVisualElement;
 
     DropdownField UISelector
-      => UIRoot.Q<DropdownField>("selector");
+      => UIRoot.Q<DropdownField>("source-selector");
 
     void ToggleUI()
-      => UISelector.visible = (Cursor.visible ^= true);
+      => UIRoot.Q("debug-root").visible = (Cursor.visible ^= true);
 
     void SelectSource(string name)
     {
-        var source = GetComponent<ImageSource>();
-        source.SourceName = name.Substring(6);
-        source.SourceType = name.StartsWith("UVC") ?
+        _imageSource.SourceName = name.Substring(6);
+        _imageSource.SourceType = name.StartsWith("UVC") ?
           ImageSourceType.Webcam : ImageSourceType.Ndi;
         PlayerPrefs.SetString(PrefKey, name);
     }
@@ -74,16 +75,14 @@ public sealed class SourceSelector : MonoBehaviour
     void Start()
     {
         // This component as a UI data source
-        UIRoot.dataSource = this;
+        UISelector.dataSource = this;
 
         // UI root as a clickable UI visibility toggle
-        UIRoot.AddManipulator(new Clickable(ToggleUI));
+        UIRoot.Q("render").AddManipulator(new Clickable(ToggleUI));
+        UIRoot.Q("click-area").AddManipulator(new Clickable(ToggleUI));
 
         // Dropdown selection callback
         UISelector.RegisterValueChangedCallback(evt => SelectSource(evt.newValue));
-
-        // Initially hidden UI
-        ToggleUI();
 
         // Initial source selection
         if (PlayerPrefs.HasKey(PrefKey))

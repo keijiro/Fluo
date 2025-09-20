@@ -1,0 +1,31 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/05%20UI/UI/Monitor.uss?fileID=7433441132597879392&amp;guid=fc5ef10e9883b4dafae0e05a1ce145ca&amp;type=3" />
+    <ui:VisualElement name="render" style="background-image: url(&quot;project://database/Assets/05%20UI/Composite/Composite.asset?fileID=8600000&amp;guid=7f656ae72923842ee93f35610b558a36&amp;type=2#Composite&quot;); -unity-background-scale-mode: scale-to-fit; position: absolute; top: 0; left: 0; right: 0; bottom: 0;" />
+    <ui:VisualElement name="debug-root" style="position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px;">
+        <ui:DropdownField name="source-selector" label="Source" data-source-type="Fluo.SourceSelector, Assembly-CSharp" focusable="false">
+            <Bindings>
+                <ui:DataBinding property="choices" data-source-path="SourceList" binding-mode="ToTarget" />
+            </Bindings>
+        </ui:DropdownField>
+        <ui:VisualElement name="debug-views" style="justify-content: center; flex-grow: 1;">
+            <ui:VisualElement name="prefilter-row" class="debugViewRow">
+                <ui:VisualElement name="prefilter-color" class="debugView" style="background-image: url(&quot;project://database/Assets/05%20UI/Composite/DebugView.asset?fileID=8600000&amp;guid=62395233aca724009a80ef9c149cdb87&amp;type=2#DebugView&quot;); background-position-x: left 0; background-position-y: top 0;" />
+                <ui:VisualElement name="prefilter-alpha" class="debugView" style="background-image: url(&quot;project://database/Assets/05%20UI/Composite/DebugView.asset?fileID=8600000&amp;guid=62395233aca724009a80ef9c149cdb87&amp;type=2#DebugView&quot;); background-position-x: center 0; background-position-y: top 0;" />
+                <ui:Label text="Video Input" class="rowLabel" />
+            </ui:VisualElement>
+            <ui:VisualElement name="simulation-row" class="debugViewRow">
+                <ui:VisualElement name="injection-color" class="debugView" style="background-image: url(&quot;project://database/Assets/05%20UI/Composite/DebugView.asset?fileID=8600000&amp;guid=62395233aca724009a80ef9c149cdb87&amp;type=2#DebugView&quot;); background-position-x: left 0; background-position-y: bottom 0;" />
+                <ui:VisualElement name="injection-alpha" class="debugView" style="background-image: url(&quot;project://database/Assets/05%20UI/Composite/DebugView.asset?fileID=8600000&amp;guid=62395233aca724009a80ef9c149cdb87&amp;type=2#DebugView&quot;); background-position-x: center 0; background-position-y: bottom 0;" />
+                <ui:VisualElement name="motion-vector" class="debugView" style="background-image: url(&quot;project://database/Assets/05%20UI/Composite/DebugView.asset?fileID=8600000&amp;guid=62395233aca724009a80ef9c149cdb87&amp;type=2#DebugView&quot;); background-position-x: center 0; background-position-y: center 0;" />
+                <ui:VisualElement name="velocity-field" class="debugView" style="background-image: url(&quot;project://database/Assets/05%20UI/Composite/DebugView.asset?fileID=8600000&amp;guid=62395233aca724009a80ef9c149cdb87&amp;type=2#DebugView&quot;); background-position-x: left 0; background-position-y: center 0;" />
+                <ui:Label text="Simulation Input" class="rowLabel" />
+            </ui:VisualElement>
+            <ui:VisualElement name="canvas-row" class="debugViewRow">
+                <ui:VisualElement name="canvas-color" class="debugView" style="background-image: url(&quot;project://database/Assets/05%20UI/Composite/DebugView.asset?fileID=8600000&amp;guid=62395233aca724009a80ef9c149cdb87&amp;type=2#DebugView&quot;); background-position-x: right 0; background-position-y: bottom 0;" />
+                <ui:VisualElement name="canvas-alpha" class="debugView" style="background-image: url(&quot;project://database/Assets/05%20UI/Composite/DebugView.asset?fileID=8600000&amp;guid=62395233aca724009a80ef9c149cdb87&amp;type=2#DebugView&quot;); background-position-x: right 0; background-position-y: center 0;" />
+                <ui:Label text="Canvas" class="rowLabel" />
+            </ui:VisualElement>
+            <ui:VisualElement name="click-area" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

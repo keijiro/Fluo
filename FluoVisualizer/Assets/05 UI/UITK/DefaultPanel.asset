@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 19101, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: DefaultPanel
   m_EditorClassIdentifier: 
-  themeUss: {fileID: -4733365628477956816, guid: 544c1c0184a224db888c76c1f0839ac8, type: 3}
+  themeUss: {fileID: -4733365628477956816, guid: 5998ab9b48ff04f8fade639ff950a635, type: 3}
   m_DisableNoThemeWarning: 0
   m_TargetTexture: {fileID: 0}
   m_RenderMode: 0
   m_WorldSpaceLayer: 0
-  m_ScaleMode: 1
+  m_ScaleMode: 2
   m_ReferenceSpritePixelsPerUnit: 100
   m_PixelsPerUnit: 100
   m_Scale: 1
   m_ReferenceDpi: 96
   m_FallbackDpi: 96
-  m_ReferenceResolution: {x: 1200, y: 800}
+  m_ReferenceResolution: {x: 640, y: 360}
   m_ScreenMatchMode: 0
   m_Match: 0
   m_SortingOrder: 0
