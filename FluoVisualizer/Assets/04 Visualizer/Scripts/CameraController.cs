@@ -44,8 +44,8 @@ public sealed class CameraController : MonoBehaviour
 
     void Start()
     {
-        SetDistanceMode(0);
-        SetAngleMode(0);
+        SetDistanceMode(1);
+        SetAngleMode(1);
 
         // FIXME: Just for suppressing the warning.
         _targetBase.position = Vector3.zero;

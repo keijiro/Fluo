@@ -3,17 +3,20 @@ using UnityEngine.VFX;
 using Unity.Mathematics;
 using Random = UnityEngine.Random;
 
+using System;
+
 namespace Fluo {
 
 public sealed class BrushController : MonoBehaviour
 {
-    void Start()
-    {
-        var colorKeys = new GradientColorKey[8];
+    Gradient _palette = new Gradient() { mode = GradientMode.Fixed };
+    GradientColorKey[] _colorKeys = new GradientColorKey[8];
 
-        for (var i = 0; i < 8; i++)
+    public void RandomizePalette()
+    {
+        for (var i = 0; i < _colorKeys.Length; i++)
         {
-            var t = (i + 1) / 8.0f;
+            var t = (i + 1.0f) / _colorKeys.Length;
 
             var h = Random.value * math.PI * 2;;
             var s = 120.0f;
@@ -22,15 +25,16 @@ public sealed class BrushController : MonoBehaviour
             HsluvHelper.HsluvToRgb(math.float3(h, s, v), out float3 rgb);
             var c = new Color(rgb.x, rgb.y, rgb.z);
 
-            colorKeys[i] = new GradientColorKey(c, t);
+            _colorKeys[i] = new GradientColorKey(c, t);
         }
 
-        var g = new Gradient();
-        g.mode = GradientMode.Fixed;
-        g.colorKeys = colorKeys;
+        _palette.colorKeys = _colorKeys;
 
-        GetComponent<VisualEffect>().SetGradient("Palette", g);
+        GetComponent<VisualEffect>().SetGradient("Palette", _palette);
     }
+
+    void Start()
+      => RandomizePalette();
 }
 
 } // namespace Fluo
