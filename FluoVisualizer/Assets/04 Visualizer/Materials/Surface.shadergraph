@@ -916,7 +916,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "x": 0.9700000286102295,
+        "x": 0.9800000190734863,
         "y": 0.10000000149011612,
         "z": 0.0,
         "w": 0.0
@@ -1225,7 +1225,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "x": 0.800000011920929,
+        "x": 1.0,
         "y": 0.20000000298023225,
         "z": 0.0,
         "w": 0.0

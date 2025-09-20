@@ -61,7 +61,6 @@ void CompositorCore_float
     float2 uv_inner = (uv - 0.5) / innerScale + 0.5;
 
     // Color samples
-    float4 c_src = tex2D(sourceTex, uv_inner);
     float4 c_bg = tex2D(bgTex, uv);
     float4 c_light = LightGrid(sourceTex, uv_inner);
     float4 c_canvas = tex2D(canvasTex, uv_inner);
@@ -74,11 +73,11 @@ void CompositorCore_float
     float opacity = saturate(c_canvas.a / opacityParams.y) * opacityParams.x;
 
     // Albedo from canvas layer
-    outAlbedo = c_canvas.rgb * fade;
+    outAlbedo = c_canvas.rgb * opacity * fade;
 
     // Emission: BG layer / Light grid layer / Canvas layer
     float3 e_bg = c_bg.rgb * bgTint;
     float3 e_light = c_light.rgb * lightTint;
-    float3 e_canvas = (c_src.rgb * transParams.x + transParams.y) * c_canvas.rgb;
+    float3 e_canvas = (c_light.rgb * transParams.x + transParams.y) * c_canvas.rgb;
     outEmission = lerp(e_bg, lerp(e_light, e_canvas, opacity), fade);
 }
