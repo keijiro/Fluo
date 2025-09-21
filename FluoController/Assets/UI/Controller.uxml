@@ -1,60 +1,29 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Controller.uss?fileID=7433441132597879392&amp;guid=b36b7ae5b6d46491380e138eaaf62a9c&amp;type=3#Controller" />
     <engine:VisualElement name="monitor" style="background-image: url(&quot;project://database/Assets/Misc/Webcam.renderTexture?fileID=8400000&amp;guid=92ce0328f74b3423798d76e14a1b8648&amp;type=2#Webcam&quot;); -unity-background-scale-mode: scale-to-fit; position: absolute; top: 0; left: 0; right: 0; bottom: 0; -unity-background-image-tint-color: rgb(101, 101, 101);" />
-    <engine:VisualElement name="controller" style="position: absolute; top: 40px; bottom: 40px; left: 100px; right: 100px;">
-        <engine:VisualElement name="row" style="flex-grow: 1; flex-direction: row;">
-            <engine:VisualElement name="section" class="control-section">
-                <engine:Label text="Particle VFX" class="control-section-label" />
-                <VJUITK.VJKnob name="knob-0" label="Sparkles" high-value="1" />
-                <VJUITK.VJKnob name="knob-1" label="Flame" high-value="1" />
-                <VJUITK.VJToggle name="toggle-0" label="Balls" />
-                <VJUITK.VJToggle name="toggle-1" label="Bubbles" />
-            </engine:VisualElement>
-            <engine:VisualElement name="section" class="control-section">
-                <engine:Label text="Body VFX" class="control-section-label" />
-                <VJUITK.VJKnob name="knob-2" label="Lightning" high-value="1" />
-                <VJUITK.VJToggle name="toggle-2" label="Trails" />
-                <VJUITK.VJToggle name="toggle-3" label="Voxels" />
-                <VJUITK.VJToggle name="toggle-4" label="Spikes" />
-            </engine:VisualElement>
-        </engine:VisualElement>
-        <engine:VisualElement name="row" style="flex-grow: 1; flex-direction: row;">
-            <engine:VisualElement name="section" class="control-section">
-                <engine:Label text="Environment VFX" class="control-section-label" />
-                <VJUITK.VJKnob name="knob-3" label="Shards" high-value="1" value="0.5" />
-                <VJUITK.VJKnob name="knob-4" label="Petals" high-value="1" />
-                <VJUITK.VJKnob name="knob-5" label="Speed" high-value="1" />
-            </engine:VisualElement>
-            <engine:VisualElement name="section" class="control-section">
-                <engine:Label text="Feedback" class="control-section-label" />
-                <VJUITK.VJKnob name="knob-6" label="Opacity" high-value="1" />
-                <VJUITK.VJKnob name="knob-7" label="Scale" high-value="1" />
-                <VJUITK.VJKnob name="knob-8" label="Translate" high-value="1" />
-                <VJUITK.VJKnob name="knob-9" label="Hue Shift" high-value="1" value="0.5" />
-            </engine:VisualElement>
+    <engine:VisualElement name="controller" style="position: absolute; top: 40px; bottom: 40px; left: 100px; right: 100px; justify-content: space-evenly;">
+        <engine:VisualElement name="row" style="flex-direction: row;">
             <engine:VisualElement name="section" class="control-section">
                 <engine:Label text="Camera" class="control-section-label" />
-                <VJUITK.VJToggle name="toggle-5" label="3rd Pers" />
-                <VJUITK.VJKnob name="knob-10" label="Distance" high-value="1" value="0.5" />
+                <VJUITK.VJKnob name="knob-0" label="Angle" high-value="1" value="0.5" />
+                <VJUITK.VJKnob name="knob-1" label="Distance" high-value="1" value="0.5" />
+            </engine:VisualElement>
+            <engine:VisualElement name="section" class="control-section">
+                <engine:Label text="Canvas" class="control-section-label" />
+                <VJUITK.VJKnob name="knob-2" label="Brush" high-value="1" value="1" />
+                <VJUITK.VJToggle name="toggle-0" label="Palette" />
+                <VJUITK.VJButton name="button-0" label="Shuffle" />
+                <VJUITK.VJKnob name="knob-3" label="Decay" high-value="1" value="0.5" />
+                <VJUITK.VJKnob name="knob-4" label="Drops" high-value="1" />
+                <VJUITK.VJKnob name="knob-5" label="Streams" high-value="1" />
             </engine:VisualElement>
         </engine:VisualElement>
-        <engine:VisualElement name="row" style="flex-grow: 1; flex-direction: row;">
+        <engine:VisualElement name="row" style="flex-direction: row;">
             <engine:VisualElement name="section" class="control-section">
-                <engine:Label text="Segments" class="control-section-label" />
-                <VJUITK.VJToggle name="toggle-6" label="Human" value="true" />
-                <VJUITK.VJToggle name="toggle-7" label="BG" value="true" />
-                <VJUITK.VJToggle name="toggle-8" label="Human Fx" />
-            </engine:VisualElement>
-            <engine:VisualElement name="section" class="control-section">
-                <engine:Label text="Recolor" class="control-section-label" />
-                <VJUITK.VJToggle name="toggle-9" label="Human" />
-                <VJUITK.VJToggle name="toggle-10" label="BG" />
-                <VJUITK.VJKnob name="knob-11" label="Hue" high-value="1" />
-            </engine:VisualElement>
-            <engine:VisualElement name="section" class="control-section">
-                <engine:Label text="Projector" class="control-section-label" />
-                <VJUITK.VJKnob name="knob-12" label="2nd Plane" high-value="1" value="0.5" />
-                <VJUITK.VJKnob name="knob-13" label="Fade Out" high-value="1" />
+                <engine:Label text="Environment VFX" class="control-section-label" />
+                <VJUITK.VJKnob name="knob-6" label="Balls" high-value="1" value="0" />
+                <VJUITK.VJKnob name="knob-7" label="Stars" high-value="1" />
+                <VJUITK.VJKnob name="knob-8" label="Shards" high-value="1" />
             </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="camera" style="position: absolute; right: 0; bottom: 0;">

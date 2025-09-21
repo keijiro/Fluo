@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Layouts;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Utilities;
+using System.Runtime.InteropServices;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -13,6 +14,7 @@ namespace Fluo {
 // Remote input device definition for Unity Input System
 
 // Input state struct
+[StructLayout(LayoutKind.Sequential)]
 public unsafe struct RemoteInputState : IInputStateTypeInfo
 {
     public FourCC format => new FourCC('F', 'L', 'U', 'O');
@@ -57,22 +59,22 @@ public unsafe struct RemoteInputState : IInputStateTypeInfo
     [InputControl(name = "toggle15", layout = "Button", bit = 15)]
     public ushort Toggles;
 
-    [InputControl(name = "knob0",  layout = "Axis", format = "BYTE", sizeInBits = 8)]
-    [InputControl(name = "knob1",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 1)]
-    [InputControl(name = "knob2",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 2)]
-    [InputControl(name = "knob3",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 3)]
-    [InputControl(name = "knob4",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 4)]
-    [InputControl(name = "knob5",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 5)]
-    [InputControl(name = "knob6",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 6)]
-    [InputControl(name = "knob7",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 7)]
-    [InputControl(name = "knob8",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 8)]
-    [InputControl(name = "knob9",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 9)]
-    [InputControl(name = "knob10", layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 10)]
-    [InputControl(name = "knob11", layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 11)]
-    [InputControl(name = "knob12", layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 12)]
-    [InputControl(name = "knob13", layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 13)]
-    [InputControl(name = "knob14", layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 14)]
-    [InputControl(name = "knob15", layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 15)]
+    [InputControl(name = "knob0",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 4)]
+    [InputControl(name = "knob1",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 5)]
+    [InputControl(name = "knob2",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 6)]
+    [InputControl(name = "knob3",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 7)]
+    [InputControl(name = "knob4",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 8)]
+    [InputControl(name = "knob5",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 9)]
+    [InputControl(name = "knob6",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 10)]
+    [InputControl(name = "knob7",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 11)]
+    [InputControl(name = "knob8",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 12)]
+    [InputControl(name = "knob9",  layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 13)]
+    [InputControl(name = "knob10", layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 14)]
+    [InputControl(name = "knob11", layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 15)]
+    [InputControl(name = "knob12", layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 16)]
+    [InputControl(name = "knob13", layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 17)]
+    [InputControl(name = "knob14", layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 18)]
+    [InputControl(name = "knob15", layout = "Axis", format = "BYTE", sizeInBits = 8, offset = 19)]
     public fixed byte Knobs[16];
 }
 

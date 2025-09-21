@@ -517,7 +517,15 @@ MonoBehaviour:
     m_Id: b55b26c6-5dc7-48da-98d5-33f42dc59ec7
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 272c9d70-511c-4166-87fe-09a82d3eb58e
+      m_Path: <RemoteInputDevice>/knob8
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Throttle Source
+      m_Flags: 0
     m_Flags: 0
   _toggleButton:
     m_Name: Toggle Button
@@ -989,6 +997,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Action
       m_Flags: 0
+    - m_Name: 
+      m_Id: 45fc7383-957b-4027-ae85-d7eae005d3d3
+      m_Path: <RemoteInputDevice>/button0
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Action
+      m_Flags: 0
     m_Flags: 0
   _onEvent:
     m_PersistentCalls:
@@ -1032,6 +1048,14 @@ MonoBehaviour:
       m_Id: 30d8aa95-d159-495c-ae05-3289615d478b
       m_Path: <Keyboard>/z
       m_Interactions: InputToggle
+      m_Processors: 
+      m_Groups: 
+      m_Action: Action
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 9cab8e41-99ab-4ecc-8191-76a15e95c804
+      m_Path: <RemoteInputDevice>/toggle0
+      m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Action
@@ -1122,7 +1146,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: e1bfe317-f9f1-40a7-83b0-37e4fcd00d5f
-      m_Path: <RemoteInputDevice>/knob1
+      m_Path: <RemoteInputDevice>/knob4
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -1819,6 +1843,124 @@ MonoBehaviour:
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
+--- !u!1 &897339329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 897339330}
+  - component: {fileID: 897339331}
+  m_Layer: 0
+  m_Name: Decay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &897339330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897339329}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1664091551}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &897339331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897339329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd89121f644f427f9805079e3eb00eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.33333334
+      value: 0.2
+      inSlope: 1.4999999
+      outSlope: 1.4999999
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6666667
+      value: 1
+      inSlope: 3.4500003
+      outSlope: 3.4500003
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 2.5
+      inSlope: 4.5000005
+      outSlope: 4.5000005
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _action:
+    m_Name: Action
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 5fed5b81-4910-4b17-89c9-963f5b973449
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 15b955ff-d42d-4410-8498-2ee033e11a3e
+      m_Path: <RemoteInputDevice>/knob3
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Action
+      m_Flags: 0
+    m_Flags: 0
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1145353203}
+        m_TargetAssemblyTypeName: Fluo.CanvasController, Assembly-CSharp
+        m_MethodName: set_AlphaDecay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &983852565
 GameObject:
   m_ObjectHideFlags: 0
@@ -2436,7 +2578,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: e1bfe317-f9f1-40a7-83b0-37e4fcd00d5f
-      m_Path: <RemoteInputDevice>/knob2
+      m_Path: <RemoteInputDevice>/knob5
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2810,7 +2952,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: e1bfe317-f9f1-40a7-83b0-37e4fcd00d5f
-      m_Path: <RemoteInputDevice>/knob0
+      m_Path: <RemoteInputDevice>/knob6
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -3152,7 +3294,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: e1bfe317-f9f1-40a7-83b0-37e4fcd00d5f
-      m_Path: <RemoteInputDevice>/knob0
+      m_Path: <RemoteInputDevice>/knob2
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -3388,6 +3530,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1828171586}
+  - {fileID: 897339330}
   m_Father: {fileID: 1743194680}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1672640284
@@ -3498,7 +3641,15 @@ MonoBehaviour:
     m_Id: b55b26c6-5dc7-48da-98d5-33f42dc59ec7
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 7d2d069d-d8d1-47a7-8800-85fa51c90ae1
+      m_Path: <RemoteInputDevice>/knob7
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Throttle Source
+      m_Flags: 0
     m_Flags: 0
   _toggleButton:
     m_Name: Toggle Button

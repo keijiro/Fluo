@@ -12,29 +12,32 @@ public sealed class VfxThrottleController : MonoBehaviour
 
     bool _toggleState;
 
-    void OnPerformed(InputAction.CallbackContext context)
-      => _toggleState = !_toggleState;
+    void OnThrottled(InputAction.CallbackContext context)
+      => _target.SetFloat("Throttle", context.ReadValue<float>());
+
+    void OnToggled(InputAction.CallbackContext context)
+      => _target.SetFloat("Throttle", (_toggleState = !_toggleState) ? 1 : 0);
 
     void OnEnable()
     {
+        _throttleSource.started += OnThrottled;
+        _throttleSource.performed += OnThrottled;
+        _throttleSource.canceled += OnThrottled;
         _throttleSource.Enable();
 
-        _toggleButton.performed += OnPerformed;
+        _toggleButton.performed += OnToggled;
         _toggleButton.Enable();
     }
 
     void OnDisable()
     {
+        _throttleSource.started -= OnThrottled;
+        _throttleSource.performed -= OnThrottled;
+        _throttleSource.canceled -= OnThrottled;
         _throttleSource.Disable();
 
         _toggleButton.Disable();
-        _toggleButton.performed -= OnPerformed;
-    }
-
-    void Update()
-    {
-        var t = _toggleState ? 1.0f : _throttleSource.ReadValue<float>();
-        _target.SetFloat("Throttle", t);
+        _toggleButton.performed -= OnToggled;
     }
 }
 
