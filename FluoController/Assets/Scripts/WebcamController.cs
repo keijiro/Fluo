@@ -10,7 +10,7 @@ public sealed class WebcamController : MonoBehaviour
     [SerializeField] RenderTexture _target = null;
 
     static readonly string[] DeviceNames =
-      {"Back Dual Camera", "Back Triple Camera", "Back Ultra Wide Camera"};
+      {"Back Dual Camera", "Back Dual Wide Camera", "Back Triple Camera"};
 
     WebCamTexture _webcam;
 
