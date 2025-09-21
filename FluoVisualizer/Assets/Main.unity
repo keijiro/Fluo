@@ -199,6 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a6b5dc758314b43906adb21127d0b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <DistanceParameter>k__BackingField: 0.5
+  <AngleParameter>k__BackingField: 0.5
   _targetBase: {fileID: 2100469765}
   _targetMotion: {fileID: 1672640286}
   _rotationBase: {fileID: 1218475532}
@@ -301,8 +303,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 348662611}
   - {fileID: 1973581786}
+  - {fileID: 348662611}
   m_Father: {fileID: 1743194680}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &156362817
@@ -602,6 +604,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 348662611}
+  - component: {fileID: 348662615}
   - component: {fileID: 348662612}
   - component: {fileID: 348662614}
   - component: {fileID: 348662613}
@@ -649,7 +652,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: ec3a3469-9bb5-4e33-a30e-df6c6c8a134f
-      m_Path: <Keyboard>/1
+      m_Path: <Keyboard>/q
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -661,8 +664,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 26578945}
         m_TargetAssemblyTypeName: Fluo.CameraController, Assembly-CSharp
-        m_MethodName: SetDistanceMode
-        m_Mode: 3
+        m_MethodName: set_DistanceParameter
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -696,7 +699,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: ec3a3469-9bb5-4e33-a30e-df6c6c8a134f
-      m_Path: <Keyboard>/3
+      m_Path: <Keyboard>/e
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -708,13 +711,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 26578945}
         m_TargetAssemblyTypeName: Fluo.CameraController, Assembly-CSharp
-        m_MethodName: SetDistanceMode
-        m_Mode: 3
+        m_MethodName: set_DistanceParameter
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
-          m_FloatArgument: 0
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -743,7 +746,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: ec3a3469-9bb5-4e33-a30e-df6c6c8a134f
-      m_Path: <Keyboard>/2
+      m_Path: <Keyboard>/w
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -755,19 +758,87 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 26578945}
         m_TargetAssemblyTypeName: Fluo.CameraController, Assembly-CSharp
-        m_MethodName: SetDistanceMode
-        m_Mode: 3
+        m_MethodName: set_DistanceParameter
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
-          m_FloatArgument: 0
+          m_FloatArgument: 0.5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   _offEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &348662615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348662610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd89121f644f427f9805079e3eb00eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _action:
+    m_Name: Action
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f88bb6a7-a52f-4d35-960a-d380e7c360d3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: bd5d6833-6e4c-41c1-81cf-f0ba21828148
+      m_Path: <RemoteInputDevice>/knob1
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Action
+      m_Flags: 0
+    m_Flags: 0
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 26578945}
+        m_TargetAssemblyTypeName: Fluo.CameraController, Assembly-CSharp
+        m_MethodName: set_DistanceParameter
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &437815214
 GameObject:
   m_ObjectHideFlags: 0
@@ -4367,6 +4438,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1973581786}
+  - component: {fileID: 1973581790}
   - component: {fileID: 1973581789}
   - component: {fileID: 1973581788}
   - component: {fileID: 1973581787}
@@ -4414,7 +4486,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: ec3a3469-9bb5-4e33-a30e-df6c6c8a134f
-      m_Path: <Keyboard>/e
+      m_Path: <Keyboard>/3
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -4426,13 +4498,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 26578945}
         m_TargetAssemblyTypeName: Fluo.CameraController, Assembly-CSharp
-        m_MethodName: SetAngleMode
-        m_Mode: 3
+        m_MethodName: set_AngleParameter
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
-          m_FloatArgument: 0
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -4461,7 +4533,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: ec3a3469-9bb5-4e33-a30e-df6c6c8a134f
-      m_Path: <Keyboard>/w
+      m_Path: <Keyboard>/2
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -4473,13 +4545,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 26578945}
         m_TargetAssemblyTypeName: Fluo.CameraController, Assembly-CSharp
-        m_MethodName: SetAngleMode
-        m_Mode: 3
+        m_MethodName: set_AngleParameter
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
-          m_FloatArgument: 0
+          m_FloatArgument: 0.5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -4508,7 +4580,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: ec3a3469-9bb5-4e33-a30e-df6c6c8a134f
-      m_Path: <Keyboard>/q
+      m_Path: <Keyboard>/1
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -4520,8 +4592,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 26578945}
         m_TargetAssemblyTypeName: Fluo.CameraController, Assembly-CSharp
-        m_MethodName: SetAngleMode
-        m_Mode: 3
+        m_MethodName: set_AngleParameter
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4533,6 +4605,74 @@ MonoBehaviour:
   _offEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1973581790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973581785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd89121f644f427f9805079e3eb00eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _action:
+    m_Name: Action
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c295d3ba-0137-408f-8c68-d5ffa6b49fed
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 2c8546f9-9e34-43b4-b97f-8f9d57a291e9
+      m_Path: <RemoteInputDevice>/knob0
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Action
+      m_Flags: 0
+    m_Flags: 0
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 26578945}
+        m_TargetAssemblyTypeName: Fluo.CameraController, Assembly-CSharp
+        m_MethodName: set_AngleParameter
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1996613656
 GameObject:
   m_ObjectHideFlags: 0
