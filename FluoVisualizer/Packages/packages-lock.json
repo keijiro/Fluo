@@ -293,7 +293,7 @@
       }
     },
     "jp.keijiro.vfxgraphassets": {
-      "version": "3.9.1",
+      "version": "3.10.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
