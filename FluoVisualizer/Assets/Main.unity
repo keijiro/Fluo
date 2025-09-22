@@ -228,10 +228,13 @@ MonoBehaviour:
       y: 0
   _angleSettings:
   - baseAngle: 75
+    baseOffset: 0.2
     swingRange: {x: 5, y: 90, z: 90}
   - baseAngle: 20
+    baseOffset: 0.1
     swingRange: {x: 60, y: 90, z: 90}
   - baseAngle: 5
+    baseOffset: 0
     swingRange: {x: 20, y: 20, z: 20}
 --- !u!1 &57649439
 GameObject:
