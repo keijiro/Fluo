@@ -4,30 +4,30 @@ using VJUITK;
 
 namespace Fluo {
 
+[System.Serializable]
+public struct WebcamConfig
+{
+    public string DeviceName;
+    public string UIName;
+    public bool HFlip;
+    public bool VFlip;
+}
+
 public sealed class WebcamController : MonoBehaviour
 {
     [SerializeField] UIDocument _inputSource = null;
     [SerializeField] RenderTexture _target = null;
-
-    static readonly
-      (string uiName, string deviceName, bool hflip, bool vflip)[] DeviceDefs =
-        { ("camera-telephoto", "Back Dual Camera",      false, true),
-          ("camera-wide",      "Back Dual Wide Camera", false, true),
-          ("camera-ultrawide", "Back Triple Camera",    false, true),
-          ("camera-front",     "Front Camera",          true, false) };
+    [SerializeField] WebcamConfig[] _configs = null;
 
     WebCamTexture _webcam;
-    (bool h, bool v) _flip;
+    WebcamConfig _config;
 
-    void SelectCamera(int index)
+    void SelectCamera(WebcamConfig config)
     {
-        ref var def = ref DeviceDefs[index];
-
+        _config = config;
         if (_webcam != null) Destroy(_webcam);
-        _webcam = new WebCamTexture(def.deviceName);
+        _webcam = new WebCamTexture(_config.DeviceName);
         _webcam.Play();
-
-        _flip = (def.hflip, def.vflip);
     }
 
     async Awaitable Start()
@@ -35,17 +35,14 @@ public sealed class WebcamController : MonoBehaviour
         var root = _inputSource.rootVisualElement;
 
         // Camera button callbacks
-        for (var i = 0; i < DeviceDefs.Length; i++)
-        {
-            var temp = i;
-            root.Q<VJButton>(DeviceDefs[temp].uiName).Clicked += () => SelectCamera(temp);
-        }
+        foreach (var cfg in _configs)
+            root.Q<VJButton>(cfg.UIName).Clicked += () => SelectCamera(cfg);
 
         // Webcam activation
         await Application.RequestUserAuthorization(UserAuthorization.WebCam);
 
-        // Initial camera (wide)
-        SelectCamera(1);
+        // Default camera
+        SelectCamera(_configs[0]);
     }
 
     void Update()
@@ -56,8 +53,9 @@ public sealed class WebcamController : MonoBehaviour
         // Crop and copy
         var srcRatio = (float)_webcam.width / _webcam.height;
         var dstRatio = (float)_target.width / _target.height;
-        var scale = new Vector2(_flip.h ? -1 : 1, (_flip.v ? -1 : 1) * srcRatio / dstRatio);
-        var offs = new Vector2(_flip.h ? 1 : 0, -0.5f * scale.y + 0.5f);
+        var yScale = (_config.VFlip ? -1 : 1) * srcRatio / dstRatio;
+        var scale = new Vector2(_config.HFlip ? -1 : 1, yScale);
+        var offs = scale * -0.5f + Vector2.one * 0.5f;
         Graphics.Blit(_webcam, _target, scale, offs);
     }
 }

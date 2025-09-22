@@ -297,6 +297,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputSource: {fileID: 220649616}
   _target: {fileID: 8400000, guid: 92ce0328f74b3423798d76e14a1b8648, type: 2}
+  _configs:
+  - DeviceName: Back Dual Wide Camera
+    UIName: camera-wide
+    HFlip: 0
+    VFlip: 1
+  - DeviceName: Back Dual Camera
+    UIName: camera-telephoto
+    HFlip: 0
+    VFlip: 1
+  - DeviceName: Back Triple Camera
+    UIName: camera-ultrawide
+    HFlip: 0
+    VFlip: 1
+  - DeviceName: Front Camera
+    UIName: camera-front
+    HFlip: 1
+    VFlip: 0
 --- !u!4 &1454325645
 Transform:
   m_ObjectHideFlags: 0
