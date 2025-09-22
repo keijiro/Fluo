@@ -512,6 +512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1209117116}
+  _propertyName: Throttle
   _throttleSource:
     m_Name: Throttle Source
     m_Type: 0
@@ -1016,9 +1017,8 @@ GameObject:
   m_Component:
   - component: {fileID: 485784578}
   - component: {fileID: 485784579}
-  - component: {fileID: 485784580}
   m_Layer: 0
-  m_Name: Brush Parameters
+  m_Name: Palette Shuffle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1036,8 +1036,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 983852566}
+  m_Children: []
   m_Father: {fileID: 1838652300}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &485784579
@@ -1095,73 +1094,6 @@ MonoBehaviour:
   _offEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &485784580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485784577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7273b4976176c463587675de4c9d228a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _action:
-    m_Name: Action
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: ea473475-6161-4f23-90b5-03156e471424
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 30d8aa95-d159-495c-ae05-3289615d478b
-      m_Path: <Keyboard>/z
-      m_Interactions: InputToggle
-      m_Processors: 
-      m_Groups: 
-      m_Action: Action
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 9cab8e41-99ab-4ecc-8191-76a15e95c804
-      m_Path: <RemoteInputDevice>/toggle0
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Action
-      m_Flags: 0
-    m_Flags: 0
-  _onEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 983852565}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  _offEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 983852565}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &568523038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,6 +1139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1413735720}
+  _propertyName: Throttle
   _throttleSource:
     m_Name: Throttle Source
     m_Type: 0
@@ -1605,8 +1538,6 @@ GameObject:
   - component: {fileID: 698496329}
   - component: {fileID: 698496328}
   - component: {fileID: 698496330}
-  - component: {fileID: 698496332}
-  - component: {fileID: 698496331}
   m_Layer: 10
   m_Name: Brush VFX
   m_TagString: Untagged
@@ -1689,7 +1620,10 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 0
+        m_Name: ApplyPalette
+        m_Overridden: 0
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -1728,38 +1662,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047ff69dc7f6e41b2922700d771d6bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &698496331
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698496326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90ac596c74cd82a4c906be06f710c862, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  check: 0
-  m_Property:
-    m_Name: ApplyPalette
-  Target: {fileID: 983852565}
---- !u!114 &698496332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698496326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdafc37f32b176349b1684c4455b98e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ExecuteInEditor: 1
-  m_Bindings:
-  - {fileID: 698496331}
-  m_VisualEffect: {fileID: 698496329}
 --- !u!1 &845794251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2032,37 +1934,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &983852565
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 983852566}
-  m_Layer: 0
-  m_Name: Palette Switch
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &983852566
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983852565}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 485784578}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1027370946
 GameObject:
   m_ObjectHideFlags: 0
@@ -2445,6 +2316,86 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 8600000, guid: 84c1663b5ecf149c0bbe31adb8a81842, type: 2}
   <AlphaDecay>k__BackingField: 1
+--- !u!1 &1187651891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187651892}
+  - component: {fileID: 1187651893}
+  m_Layer: 0
+  m_Name: Apply Palette
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1187651892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187651891}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1838652300}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1187651893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187651891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a577e986d234e1c9669692b49b1732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 698496329}
+  _propertyName: ApplyPalette
+  _throttleSource:
+    m_Name: Throttle Source
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b55b26c6-5dc7-48da-98d5-33f42dc59ec7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: e1bfe317-f9f1-40a7-83b0-37e4fcd00d5f
+      m_Path: <RemoteInputDevice>/knob9
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Throttle Source
+      m_Flags: 0
+    m_Flags: 0
+  _toggleButton:
+    m_Name: Toggle Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: bff5d8e2-c660-442c-85cd-de234054699f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: c9a0b242-5434-457a-9292-fbebeb06075f
+      m_Path: <Keyboard>/z
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Toggle Button
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &1209117113
 GameObject:
   m_ObjectHideFlags: 0
@@ -2639,6 +2590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1273245716}
+  _propertyName: Throttle
   _throttleSource:
     m_Name: Throttle Source
     m_Type: 0
@@ -3013,6 +2965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 657327188}
+  _propertyName: Throttle
   _throttleSource:
     m_Name: Throttle Source
     m_Type: 0
@@ -3321,7 +3274,7 @@ GameObject:
   - component: {fileID: 1486879819}
   - component: {fileID: 1486879820}
   m_Layer: 0
-  m_Name: Brush VFX
+  m_Name: VFX Throttle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3355,6 +3308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 698496329}
+  _propertyName: Throttle
   _throttleSource:
     m_Name: Throttle Source
     m_Type: 0
@@ -3705,6 +3659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1027370949}
+  _propertyName: Throttle
   _throttleSource:
     m_Name: Throttle Source
     m_Type: 0
@@ -4340,8 +4295,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 485784578}
   - {fileID: 1486879819}
+  - {fileID: 1187651892}
+  - {fileID: 485784578}
   - {fileID: 568523039}
   - {fileID: 1223233347}
   m_Father: {fileID: 1743194680}

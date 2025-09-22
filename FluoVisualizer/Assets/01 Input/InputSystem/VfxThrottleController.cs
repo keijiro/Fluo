@@ -7,16 +7,17 @@ namespace Fluo {
 public sealed class VfxThrottleController : MonoBehaviour
 {
     [SerializeField] VisualEffect _target = null;
+    [SerializeField] string _propertyName = "Throttle";
     [Space, SerializeField] InputAction _throttleSource = null;
     [Space, SerializeField] InputAction _toggleButton = null;
 
     bool _toggleState;
 
     void OnThrottled(InputAction.CallbackContext context)
-      => _target.SetFloat("Throttle", context.ReadValue<float>());
+      => _target.SetFloat(_propertyName, context.ReadValue<float>());
 
     void OnToggled(InputAction.CallbackContext context)
-      => _target.SetFloat("Throttle", (_toggleState = !_toggleState) ? 1 : 0);
+      => _target.SetFloat(_propertyName, (_toggleState = !_toggleState) ? 1 : 0);
 
     void OnEnable()
     {
