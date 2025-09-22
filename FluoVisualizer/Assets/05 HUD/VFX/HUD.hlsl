@@ -1,8 +1,10 @@
 void SourceMonitor_float
-  (float4 input, float2 spos, bool alternate, out float output)
+  (UnityTexture2D sourceTex,
+   float2 uv,
+   float2 spos,
+   bool alternate,
+   out float output)
 {
-    uint2 ipos = (uint2)spos >> 1;
-
     const float bayer[] =
     {
         0.000000, 0.531250, 0.132812, 0.664062,
@@ -11,12 +13,24 @@ void SourceMonitor_float
         0.996094, 0.464844, 0.863281, 0.332031,
     };
 
+    // Dithering pattern
+    uint2 ipos = (uint2)spos >> 1;
     float dither = bayer[(ipos.x % 4) * 4 + ipos.y % 4] - 0.5;
 
-    float lv = dot(LinearToSRGB(input.rgb), 1.0 / 3);
-    lv = lerp(lv, input.a, alternate);
+    // Source texture
+    float4 src = tex2D(sourceTex, uv);
+    float lv = Luminance(LinearToSRGB(src.rgb));
+    lv = lerp(lv, src.a, alternate);
 
-    output = ((lv + dither * 0.5) > 0.5) * all(ipos & 1);
+    // Binary value
+    bool bin = ((lv + dither * 0.75) > 0.5) && all(ipos & 1);
+
+    // Border lines
+    float2 uv2 = min(uv, 1 - uv);
+    float2 pt = uv2 / fwidth(uv2);
+    float bline = 1 - min(pt.x, pt.y);
+
+    output = max(bin, bline);
 }
 
 float LogoSampler(UnityTexture2D tex1, UnityTexture2D tex2, float2 uv, float t)
