@@ -9,16 +9,25 @@ public sealed class WebcamController : MonoBehaviour
     [SerializeField] UIDocument _inputSource = null;
     [SerializeField] RenderTexture _target = null;
 
-    static readonly string[] DeviceNames =
-      {"Back Dual Camera", "Back Dual Wide Camera", "Back Triple Camera"};
+    static readonly
+      (string uiName, string deviceName, bool hflip, bool vflip)[] DeviceDefs =
+        { ("camera-telephoto", "Back Dual Camera",      false, true),
+          ("camera-wide",      "Back Dual Wide Camera", false, true),
+          ("camera-ultrawide", "Back Triple Camera",    false, true),
+          ("camera-front",     "Front Camera",          true, false) };
 
     WebCamTexture _webcam;
+    (bool h, bool v) _flip;
 
     void SelectCamera(int index)
     {
+        ref var def = ref DeviceDefs[index];
+
         if (_webcam != null) Destroy(_webcam);
-        _webcam = new WebCamTexture(DeviceNames[index]);
+        _webcam = new WebCamTexture(def.deviceName);
         _webcam.Play();
+
+        _flip = (def.hflip, def.vflip);
     }
 
     async Awaitable Start()
@@ -26,9 +35,11 @@ public sealed class WebcamController : MonoBehaviour
         var root = _inputSource.rootVisualElement;
 
         // Camera button callbacks
-        root.Q<VJButton>("camera-telephoto").Clicked += () => SelectCamera(0);
-        root.Q<VJButton>("camera-wide")     .Clicked += () => SelectCamera(1);
-        root.Q<VJButton>("camera-ultrawide").Clicked += () => SelectCamera(2);
+        for (var i = 0; i < DeviceDefs.Length; i++)
+        {
+            var temp = i;
+            root.Q<VJButton>(DeviceDefs[temp].uiName).Clicked += () => SelectCamera(temp);
+        }
 
         // Webcam activation
         await Application.RequestUserAuthorization(UserAuthorization.WebCam);
@@ -43,11 +54,10 @@ public sealed class WebcamController : MonoBehaviour
         if (_webcam == null || _webcam.width < 32) return;
 
         // Crop and copy
-        var vflip = _webcam.videoVerticallyMirrored;
         var srcRatio = (float)_webcam.width / _webcam.height;
         var dstRatio = (float)_target.width / _target.height;
-        var scale = new Vector2(1, (vflip ? -1 : 1) * srcRatio / dstRatio);
-        var offs = new Vector2(0, -0.5f * scale.y + 0.5f);
+        var scale = new Vector2(_flip.h ? -1 : 1, (_flip.v ? -1 : 1) * srcRatio / dstRatio);
+        var offs = new Vector2(_flip.h ? 1 : 0, -0.5f * scale.y + 0.5f);
         Graphics.Blit(_webcam, _target, scale, offs);
     }
 }
