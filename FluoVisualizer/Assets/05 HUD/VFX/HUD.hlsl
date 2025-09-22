@@ -39,7 +39,7 @@ void LogoScroller_float
    float2 uv,
    out float output)
 {
-    float t = _Time.y / 12;
+    float t = _Time.y / 8;
 
     uint idx = ((uint)t) & 3;
 
