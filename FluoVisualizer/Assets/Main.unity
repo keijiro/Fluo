@@ -207,17 +207,32 @@ MonoBehaviour:
   _rotationMotion: {fileID: 57649441}
   _distanceBase: {fileID: 1786960695}
   _distanceMotion: {fileID: 1997424820}
-  _distanceRanges:
-  - {x: 0, y: 2}
-  - {x: 0, y: 6}
-  - {x: 5, y: 6}
+  _distanceSettings:
+  - distanceMinMax:
+      x: 0
+      y: 2
+    slideRange:
+      x: 1.2
+      y: 0.67
+  - distanceMinMax:
+      x: 0
+      y: 6
+    slideRange:
+      x: 0.4
+      y: 0.25
+  - distanceMinMax:
+      x: 5
+      y: 6
+    slideRange:
+      x: 0
+      y: 0
   _angleSettings:
   - baseAngle: 75
-    rotation: {x: 5, y: 90, z: 90}
+    swingRange: {x: 5, y: 90, z: 90}
   - baseAngle: 20
-    rotation: {x: 60, y: 90, z: 90}
+    swingRange: {x: 60, y: 90, z: 90}
   - baseAngle: 5
-    rotation: {x: 20, y: 20, z: 20}
+    swingRange: {x: 20, y: 20, z: 20}
 --- !u!1 &57649439
 GameObject:
   m_ObjectHideFlags: 0
@@ -3611,7 +3626,7 @@ MonoBehaviour:
     x: 0
     y: 0
     z: 0
-  frequency: 0.05
+  frequency: 0.02
   octaves: 1
   seed: 3221
 --- !u!1 &1679158287
