@@ -519,7 +519,7 @@ PlayerSettings:
   enableCrashReportAPI: 0
   cameraUsageDescription: Uses camera for video input.
   locationUsageDescription: 
-  microphoneUsageDescription: 
+  microphoneUsageDescription: Uses mic for audio input.
   bluetoothUsageDescription: 
   macOSTargetOSVersion: 11.0
   switchNMETAOverride: 

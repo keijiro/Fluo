@@ -2,6 +2,6 @@ using UnityEngine;
 
 public sealed class FrameRateConfig : MonoBehaviour
 {
-    void StartIO()
+    void Start()
       => Application.targetFrameRate = 60;
 }

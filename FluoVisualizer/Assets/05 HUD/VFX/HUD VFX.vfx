@@ -420,28 +420,10 @@ MonoBehaviour:
     - model: {fileID: 114350483966677521}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 114350483966677523}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 114350483966677527}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 114350483966677542}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 114350483966677640}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 114350483966677970}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 114350483966677556}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 114350483966677610}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 114350483966677654}
       id: 0
       isStickyNote: 0
     - model: {fileID: 114350483966677562}
@@ -460,12 +442,6 @@ MonoBehaviour:
       id: 0
       isStickyNote: 0
     - model: {fileID: 114350483966677950}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 114350483966677957}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 114350483966677964}
       id: 0
       isStickyNote: 0
     - model: {fileID: 114350483966677921}
