@@ -20,7 +20,7 @@ MonoBehaviour:
     x: 2813
     y: -1064
     width: 785
-    height: 1831
+    height: 1832
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1842,7 +1842,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.15
+      m_SerializableObject: 0.14
     m_Space: -1
   m_Property:
     name: B
@@ -2332,7 +2332,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 16
+      m_SerializableObject: 2.5
     m_Space: -1
   m_Property:
     name: _amplitude
