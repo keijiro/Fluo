@@ -228,6 +228,32 @@
       "dependencies": {},
       "url": "https://registry.npmjs.com"
     },
+    "jp.keijiro.lasp": {
+      "version": "2.1.7",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.burst": "1.4.4",
+        "jp.keijiro.libsoundio": "1.0.5"
+      },
+      "url": "https://registry.npmjs.com"
+    },
+    "jp.keijiro.laspvfx": {
+      "version": "1.0.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "jp.keijiro.lasp": "2.1.7"
+      },
+      "url": "https://registry.npmjs.com"
+    },
+    "jp.keijiro.libsoundio": {
+      "version": "1.0.5",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.com"
+    },
     "jp.keijiro.metamesh": {
       "version": "1.2.0",
       "depth": 0,
