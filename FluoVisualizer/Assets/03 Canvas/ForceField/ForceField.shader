@@ -13,6 +13,7 @@ Shader "Fluo/ForceField"
 
 TEXTURE2D(_MainTex);
 SAMPLER(sampler_MainTex);
+float4 _MainTex_TexelSize;
 
 float _Amplitude;
 
@@ -21,6 +22,7 @@ half4 fragUpdate(CustomRenderTextureVaryings i) : SV_Target
     float2 uv = i.globalTexcoord.xy;
 
     float2 mv = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, uv).xy;
+    mv.y *= _MainTex_TexelSize.x * _MainTex_TexelSize.w;
     mv *= _Amplitude / unity_DeltaTime.x;
 
     return float4(mv, 0, 0);
