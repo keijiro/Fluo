@@ -14,23 +14,22 @@ void SourceMonitor_float
     };
 
     // Dithering pattern
-    uint2 ipos = (uint2)spos >> 1;
+    uint2 ipos = (uint2)spos;
     float dither = bayer[(ipos.x % 4) * 4 + ipos.y % 4] - 0.5;
 
     // Source texture
     float4 src = tex2D(sourceTex, uv);
     float lv = Luminance(LinearToSRGB(src.rgb));
-    lv = lerp(lv, src.a, alternate);
+    lv = lerp(lv, src.a * 0.2, alternate);
 
     // Binary value
-    bool bin = ((lv + dither * 0.75) > 0.5) && all(ipos & 1);
+    bool bin = (lv + dither * 0.75) > 0.5;
 
     // Border lines
-    float2 uv2 = min(uv, 1 - uv);
-    float2 pt = uv2 / fwidth(uv2);
+    float2 pt = min(uv, 1 - uv) / fwidth(uv);
     float bline = 1 - min(pt.x, pt.y);
 
-    output = max(bin, bline);
+    output = max(bin, bline * 0.25);
 }
 
 float LogoSampler(UnityTexture2D tex1, UnityTexture2D tex2, float2 uv, float t)
