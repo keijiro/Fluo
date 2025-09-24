@@ -1356,7 +1356,7 @@ VisualEffect:
         m_Overridden: 1
     m_Uint:
       m_Array:
-      - m_Value: 821
+      - m_Value: 803
         m_Name: WaveformSampleCount
         m_Overridden: 1
       - m_Value: 4096
@@ -2756,13 +2756,24 @@ MonoBehaviour:
   _filterType: 3
   _autoGain: 1
   _gain: 6
-  _dynamicRange: 12
+  _dynamicRange: 6
   _smoothFall: 1
-  _fallSpeed: 0.3
-  _propertyBinders: []
+  _fallSpeed: 0.5
+  _propertyBinders:
+  - rid: 4566357002738991159
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 4566357002738991159
+      type: {class: FloatPropertyBinder, ns: Lasp, asm: Lasp.Runtime}
+      data:
+        Enabled: 1
+        Target: {fileID: 2092948135}
+        PropertyName: EffectIntensity
+        _propertyType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+        Value0: 0
+        Value1: 1
 --- !u!1 &1187651891
 GameObject:
   m_ObjectHideFlags: 0
@@ -5288,6 +5299,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2092948134}
+  - component: {fileID: 2092948135}
   m_Layer: 5
   m_Name: 06 Monitor
   m_TagString: Untagged
@@ -5312,6 +5324,19 @@ Transform:
   - {fileID: 165379389}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2092948135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092948133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0665e67052ba541d99e42d760618b648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EffectIntensity>k__BackingField: 0
 --- !u!1 &2100469764
 GameObject:
   m_ObjectHideFlags: 0
