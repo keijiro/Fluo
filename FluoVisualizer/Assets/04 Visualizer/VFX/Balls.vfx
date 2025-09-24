@@ -3815,7 +3815,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.01
+      m_SerializableObject: 0.015
     m_Space: -1
   m_Property:
     name: Min Value
@@ -5454,9 +5454,10 @@ MonoBehaviour:
   m_HLSLCode: "#include \"Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl\"\n#include
     \"Packages/jp.keijiro.spectral-js-unity/Shaders/SpectralUnity.hlsl\"\n\nvoid
     RandomSpectralColor(inout VFXAttributes attributes, float hueCycle)\n{\n  float
-    hue = _Time.y / max(hueCycle, 1);\n  float3 c1 = HsvToRgb(float3(hue, 0.8, 0.8));\n 
-    float3 c2 = HsvToRgb(float3(hue + 0.528, 0.83, 0.83));\n  float param = smoothstep(0,
-    1, VFXRAND);\n  attributes.color = SRGBToLinear(SpectralMix(c1, c2, param));\n}"
+    hue = frac(_Time.y / max(hueCycle, 1));\n  float3 c1 = HsvToRgb(float3(hue, 0.8,
+    0.8));\n  float3 c2 = HsvToRgb(float3(hue + 0.33, 0.7, 0.83));\n  float param
+    = smoothstep(0, 1, smoothstep(0, 1, VFXRAND));\n  attributes.color = SRGBToLinear(SpectralMix(c1,
+    c2, param));\n}"
   m_ShaderFile: {fileID: 0}
   m_AvailableFunction:
     selection: RandomSpectralColor

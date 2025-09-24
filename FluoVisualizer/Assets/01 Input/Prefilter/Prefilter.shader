@@ -9,9 +9,8 @@ Shader "Hidden/Fluo/Prefilter"
 
 HLSLINCLUDE
 
-#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
-#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/GlobalSamplers.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 #include "Packages/jp.keijiro.bodypix/Shaders/Common.hlsl"
 
 TEXTURE2D(_MainTex);
