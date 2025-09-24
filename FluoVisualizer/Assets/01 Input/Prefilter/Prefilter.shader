@@ -78,10 +78,11 @@ float4 Blur17(float2 uv, float2 step)
 // Background effect (animated light slit)
 float4 BackgroundEffect(float2 uv)
 {
-    float hue = frac(_Time.y / (4 * 60)) * 1.5;
+    float t = _Time.y % 997;
+    float hue = frac(t / (4 * 60)) * 1.5;
     float3 hsv = float3(hue, 1 - smoothstep(1, 1.04, hue), 1);
     float3 rgb = SRGBToLinear(HsvToRgb(hsv));
-    float n = SimplexNoise(float2(uv.x * 6, _Time.y * 2));
+    float n = SimplexNoise(float2(uv.x * 6, t * 2));
     float alpha = 1 - smoothstep(0, _EffectIntensity, abs(n));
     return float4(rgb, alpha);
 }
