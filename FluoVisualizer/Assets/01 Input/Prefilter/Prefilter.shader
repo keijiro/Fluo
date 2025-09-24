@@ -12,6 +12,7 @@ HLSLINCLUDE
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 #include "Packages/jp.keijiro.bodypix/Shaders/Common.hlsl"
+#include "Packages/jp.keijiro.noiseshader/Shader/SimplexNoise2D.hlsl"
 
 TEXTURE2D(_MainTex);
 float4 _MainTex_TexelSize;
@@ -21,6 +22,8 @@ float _LutBlend;
 
 TEXTURE2D(_BodyPixTex);
 float4 _BodyPixTex_TexelSize;
+
+float _EffectIntensity;
 
 // LUT application
 float3 ApplyLut(float3 input)
@@ -72,6 +75,17 @@ float4 Blur17(float2 uv, float2 step)
     return c;
 }
 
+// Background effect (animated light slit)
+float4 BackgroundEffect(float2 uv)
+{
+    float hue = frac(_Time.y / (4 * 60)) * 1.5;
+    float3 hsv = float3(hue, 1 - smoothstep(1, 1.04, hue), 1);
+    float3 rgb = SRGBToLinear(HsvToRgb(hsv));
+    float n = SimplexNoise(float2(uv.x * 6, _Time.y * 2));
+    float alpha = 1 - smoothstep(0, _EffectIntensity, abs(n));
+    return float4(rgb, alpha);
+}
+
 // Shared vertex shader
 void Vertex(uint vertexID : SV_VertexID,
             out float4 positionCS : SV_POSITION,
@@ -92,7 +106,10 @@ float4 FragmentMultiplex(float4 positionCS : SV_POSITION,
     BodyPix_Mask mask = BodyPix_SampleMask(uv, _BodyPixTex, _BodyPixTex_TexelSize.zw);
     float alpha = smoothstep(0.4, 0.6, BodyPix_EvalSegmentation(mask));
 
-    return float4(color, alpha);
+    // Background effect
+    float4 effect = BackgroundEffect(uv);
+
+    return float4(lerp(color, effect.rgb, effect.a * (1 - alpha)), alpha);
 }
 
 // Fragment shader: Horizontal blur pass

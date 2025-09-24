@@ -1356,7 +1356,7 @@ VisualEffect:
         m_Overridden: 1
     m_Uint:
       m_Array:
-      - m_Value: 723
+      - m_Value: 821
         m_Name: WaveformSampleCount
         m_Overridden: 1
       - m_Value: 4096
@@ -2009,6 +2009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <LutBlend>k__BackingField: 1
+  <EffectIntensity>k__BackingField: 0
   _source: {fileID: 845794253}
   _resources: {fileID: 11400000, guid: 4f9330a89914fac438cb63225f3b6e25, type: 2}
   _lutTexture: {fileID: 8534537815417165676, guid: 244beb38c4aca46d38429ea743939884, type: 3}
@@ -2251,10 +2252,21 @@ MonoBehaviour:
   _dynamicRange: 12
   _smoothFall: 1
   _fallSpeed: 0.3
-  _propertyBinders: []
+  _propertyBinders:
+  - rid: 4566357001456058421
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 4566357001456058421
+      type: {class: FloatPropertyBinder, ns: Lasp, asm: Lasp.Runtime}
+      data:
+        Enabled: 1
+        Target: {fileID: 845794257}
+        PropertyName: EffectIntensity
+        _propertyType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+        Value0: 0
+        Value1: 1
 --- !u!1 &989733308
 GameObject:
   m_ObjectHideFlags: 0

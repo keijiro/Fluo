@@ -11,6 +11,9 @@ public sealed class Prefilter : MonoBehaviour
     [field:SerializeField, Range(0, 1)]
     public float LutBlend { get; set; } = 1;
 
+    [field:SerializeField, Range(0, 1)]
+    public float EffectIntensity { get; set; } = 0;
+
     #endregion
 
     #region Editable attributes
@@ -57,6 +60,7 @@ public sealed class Prefilter : MonoBehaviour
         _material.SetTexture(ShaderID.BodyPixTex, _detector.MaskTexture);
         _material.SetTexture(ShaderID.LutTex, _lutTexture);
         _material.SetFloat(ShaderID.LutBlend, LutBlend);
+        _material.SetFloat(ShaderID.EffectIntensity, EffectIntensity);
 
         // Multiplexing: Color grading and human stencil
         Graphics.Blit(_source.AsTexture, _multiplexOut, _material, 0);
