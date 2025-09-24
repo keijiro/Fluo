@@ -83,7 +83,8 @@ float4 BackgroundEffect(float2 uv)
     float3 hsv = float3(hue, 1 - smoothstep(1, 1.04, hue), 1);
     float3 rgb = SRGBToLinear(HsvToRgb(hsv));
     float n = SimplexNoise(float2(uv.x * 6, t * 2));
-    float alpha = 1 - smoothstep(0, _EffectIntensity, abs(n));
+    float thresh = max(0, _EffectIntensity - 0.333);
+    float alpha = 1 - smoothstep(thresh, 1.1 * thresh, abs(n));
     return float4(rgb, alpha);
 }
 

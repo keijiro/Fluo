@@ -456,7 +456,7 @@ MonoBehaviour:
     x: 455
     y: -1968
     width: 6278
-    height: 2473
+    height: 2472
 --- !u!114 &114350483966675611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9997,7 +9997,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Transform, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":0.7803400158882141,"y":0.05530000105500221,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.16500000655651093,"y":0.09281250089406967,"z":1.0}}'
+      m_SerializableObject: '{"position":{"x":0.7652000188827515,"y":0.06599999964237213,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.20000000298023225,"y":0.11249999701976776,"z":1.0}}'
     m_Space: 0
   m_Property:
     name: transform
@@ -10596,7 +10596,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Transform, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":0.7803400158882141,"y":-0.05530000105500221,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.16500000655651093,"y":0.09281250089406967,"z":1.0}}'
+      m_SerializableObject: '{"position":{"x":0.7652000188827515,"y":-0.06599999964237213,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.20000000298023225,"y":0.11249999701976776,"z":1.0}}'
     m_Space: 0
   m_Property:
     name: transform

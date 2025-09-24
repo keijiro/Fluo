@@ -20,7 +20,7 @@ void SourceMonitor_float
     // Source texture
     float4 src = tex2D(sourceTex, uv);
     float lv = Luminance(LinearToSRGB(src.rgb));
-    lv = lerp(lv, src.a * 0.2, alternate);
+    lv = lerp(lv * 0.5, src.a * 0.2, alternate);
 
     // Binary value
     bool bin = (lv + dither * 0.75) > 0.5;
