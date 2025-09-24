@@ -1356,7 +1356,7 @@ VisualEffect:
         m_Overridden: 1
     m_Uint:
       m_Array:
-      - m_Value: 811
+      - m_Value: 723
         m_Name: WaveformSampleCount
         m_Overridden: 1
       - m_Value: 4096
@@ -2843,7 +2843,7 @@ GameObject:
   - component: {fileID: 1209117116}
   - component: {fileID: 1209117115}
   m_Layer: 0
-  m_Name: Dust
+  m_Name: Confetti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
