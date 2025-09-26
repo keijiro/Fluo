@@ -1,5 +1,7 @@
 # Fluo
 
+![0920](https://github.com/user-attachments/assets/d95f80a4-9001-4b37-93f7-524477e313ea)
+
 Fluo is a Unity visualizer that mixes [StableFluids] and [spectral.js] to
 produce fluid, spectrum-driven graphics.
 
