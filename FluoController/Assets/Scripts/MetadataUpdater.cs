@@ -40,6 +40,9 @@ public sealed class MetadataUpdater : MonoBehaviour
         return state;
     }
 
+    Metadata MakeMetadata()
+      => new Metadata(CalculateInputState(), Time.frameCount, Time.time);
+
     #endregion
 
     #region MonoBehaviour implementation
@@ -65,7 +68,7 @@ public sealed class MetadataUpdater : MonoBehaviour
     }
 
     void Update()
-      => _sender.metadata = new Metadata(CalculateInputState()).Serialize();
+      => _sender.metadata = MakeMetadata().Serialize();
 
     #endregion
 }

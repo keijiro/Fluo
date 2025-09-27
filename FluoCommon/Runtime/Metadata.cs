@@ -7,12 +7,16 @@ public readonly struct Metadata
 {
     #region Data members
 
-    // Control input state
     public readonly RemoteInputState InputState;
+    public readonly int FrameCount;
+    public readonly float FrameTime;
 
-    // Constructor
-    public Metadata(RemoteInputState inputState)
-      => InputState = inputState;
+    #endregion
+
+    #region Constructors
+
+    public Metadata(RemoteInputState inputState, int frameCount, float frameTime)
+      => (InputState, FrameCount, FrameTime) = (inputState, frameCount, frameTime);
 
     #endregion
 
@@ -25,11 +29,12 @@ public readonly struct Metadata
         return "<![CDATA[" + System.Convert.ToBase64String(bytes) + "]]>";
     }
 
-    public static Metadata Deserialize(string xml)
+    public static unsafe Metadata Deserialize(string xml)
     {
         var base64 = xml.Substring(9, xml.Length - 9 - 3);
-        var data = System.Convert.FromBase64String(base64);
-        return MemoryMarshal.Read<Metadata>(new Span<byte>(data));
+        var buf = (Span<byte>)(stackalloc byte[Marshal.SizeOf<Metadata>()]);
+        Convert.TryFromBase64String(base64, buf, out int written);
+        return MemoryMarshal.Read<Metadata>(buf);
     }
 
     #endregion

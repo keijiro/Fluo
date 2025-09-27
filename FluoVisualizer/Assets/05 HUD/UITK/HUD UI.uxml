@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/04%20HUD/UITK/HUD%20Style.uss?fileID=7433441132597879392&amp;guid=1b1512b2360724b3587d54b430c7b73e&amp;type=3#HUD Style" />
     <ui:VisualElement name="container" style="flex-grow: 1; margin-top: 28px; margin-right: 52px; margin-bottom: 28px; margin-left: 52px;">
         <ui:Label text="* System Link Established (00:00)&#10;* Core Sync Active&#10;* Target Lock Pending (*)" name="label1" style="position: absolute; left: 0; top: 0;" />
-        <ui:Label text="00 11 22 33 44 55 66 77 88&#10;00 11 22 33 44 55 66 77 88&#10;00 11 22 33 44 55 66 77 88" name="label2" style="position: absolute; -unity-text-align: upper-right; top: 0; right: 0;" />
+        <ui:Label text="00 11 22 33 44 55 66&#10;00 11 22 33 44 55 66&#10;00 11 22 33 44 55 66&#10;00 11 22 33 44 55 66" name="label2" style="position: absolute; -unity-text-align: upper-right; top: 0; right: 0;" />
         <ui:Label text="Packet Stream: 44%&#10;Node Status: Stable&#10;Pattern Recognized" name="label3" style="position: absolute; right: 0; bottom: 0; -unity-text-align: upper-right;" />
     </ui:VisualElement>
 </ui:UXML>
