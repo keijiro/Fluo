@@ -1253,6 +1253,7 @@ GameObject:
   - component: {fileID: 635178409}
   - component: {fileID: 635178408}
   - component: {fileID: 635178407}
+  - component: {fileID: 635178410}
   m_Layer: 12
   m_Name: HUD VFX
   m_TagString: Untagged
@@ -1348,7 +1349,19 @@ VisualEffect:
     m_Vector2f:
       m_Array: []
     m_Vector3f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 90, y: 0, z: 0}
+        m_Name: CameraTransform_angles
+        m_Overridden: 1
+      - m_Value: {x: 0, y: 4, z: 0}
+        m_Name: CameraTransform_position
+        m_Overridden: 1
+      - m_Value: {x: 1, y: 1.0000002, z: 1.0000002}
+        m_Name: CameraTransform_scale
+        m_Overridden: 1
+      - m_Value: {x: 0, y: 4, z: 0}
+        m_Name: Camera Position
+        m_Overridden: 1
     m_Vector4f:
       m_Array:
       - m_Value: {x: 1, y: 1, z: 1, w: 1}
@@ -1356,7 +1369,7 @@ VisualEffect:
         m_Overridden: 1
     m_Uint:
       m_Array:
-      - m_Value: 815
+      - m_Value: 801
         m_Name: WaveformSampleCount
         m_Overridden: 1
       - m_Value: 4096
@@ -1414,6 +1427,7 @@ MonoBehaviour:
   - {fileID: 635178409}
   - {fileID: 635178408}
   - {fileID: 635178407}
+  - {fileID: 635178410}
   m_VisualEffect: {fileID: 635178404}
 --- !u!114 &635178407
 MonoBehaviour:
@@ -1460,6 +1474,22 @@ MonoBehaviour:
   _property:
     m_Name: AudioLowLevel
   Target: {fileID: 951679308}
+--- !u!114 &635178410
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635178401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fdfea1f838247c40921a07afedde962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Space: 0
+  m_Property:
+    m_Name: CameraTransform
+  Target: {fileID: 2140485225}
 --- !u!1 &657327185
 GameObject:
   m_ObjectHideFlags: 0
