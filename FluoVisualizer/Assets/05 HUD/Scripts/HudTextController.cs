@@ -1,51 +1,60 @@
+using Klak.Ndi;
+using Klak.TestTools;
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Random = UnityEngine.Random;
+using UnityEngine.Profiling;
 
 namespace Fluo {
 
 public sealed class HudTextController : MonoBehaviour
 {
     [SerializeField] MetadataReceiver _metadataReceiver = null;
+    [SerializeField] ImageSource _imageSource = null;
 
     static readonly string[] _spinner = { "|", "/", "-", "\\", "*" };
 
     (Label e1, Label e2, Label e3) _labels;
-    float _timer;
     int _count;
+    float _eofTime;
 
-    void Start()
+    async Awaitable Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
 
         _labels.e1 = root.Q<Label>("label1");
         _labels.e2 = root.Q<Label>("label2");
         _labels.e3 = root.Q<Label>("label3");
+
+        while (true)
+        {
+            var t1 = System.DateTime.Now.Ticks;
+            await Awaitable.EndOfFrameAsync();
+            var t2 = System.DateTime.Now.Ticks;
+            _eofTime = (float)(t2 - t1) / TimeSpan.TicksPerMillisecond;
+            await Awaitable.NextFrameAsync();
+        }
     }
 
     void Update()
     {
-        if ((_timer += Time.deltaTime) > 0.05f)
-        {
-            _labels.e1.text = GenerateLabel1();
-            _timer -= 0.05f;
-        }
-
+        _labels.e1.text = GenerateLabel1();
         _labels.e2.text = GenerateLabel2();
-        if (Random.value < 0.1f) _labels.e3.text = GenerateLabel3();
+        _labels.e3.text = GenerateLabel3();
     }
 
     string GenerateLabel1()
     {
-        var n1 = Time.time % 100;
-        var n2 = (Time.time * 11) % 100;
-        var s = _spinner[_count++ % 5];
-        var text = $"* System Link Established ({n1:00}:{n2:00})\n";
-        text += $"* Core Sync Active\n";
-        text += $"* Target Lock Pending [{s}]";
-        return text;
+        var spinner = _spinner[(_count++ / 8) % 5];
+
+        var ndi = _imageSource.GetComponent<NdiReceiver>();
+        if (ndi == null) return $"* Awaiting Link... [{spinner}]";
+
+        var metadata = _metadataReceiver.LastReceived;
+        return $"* Link Established [{spinner}]\n" +
+               $"* Endpoint ID [{ndi.ndiName}]\n" +
+               $"* Sync Timecode [{metadata.FrameCount}:{metadata.FrameTime:.00}]";
     }
 
     static string GenerateLabel2Line(ReadOnlySpan<byte> s)
@@ -63,7 +72,10 @@ public sealed class HudTextController : MonoBehaviour
     }
 
     string GenerateLabel3()
-      => $"Packet Stream: {Random.Range(0, 99):00}%\nNode Status: Stable\nPattern Recognized";
+      => $"Core Runtime Index [{_eofTime:.00}]\n" +
+         $"Visual Sync Rate [{1.0f / Time.deltaTime:.00}]\n" +
+         $"Primary Occupancy [{Profiler.GetTotalAllocatedMemoryLong():N0}]\n" +
+         $"Secondary Occupancy [{Profiler.GetMonoUsedSizeLong():N0}]";
 }
 
 } // namespace Fluo

@@ -1356,7 +1356,7 @@ VisualEffect:
         m_Overridden: 1
     m_Uint:
       m_Array:
-      - m_Value: 928
+      - m_Value: 815
         m_Name: WaveformSampleCount
         m_Overridden: 1
       - m_Value: 4096
@@ -3971,6 +3971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _metadataReceiver: {fileID: 845794256}
+  _imageSource: {fileID: 845794253}
 --- !u!1 &1642201861
 GameObject:
   m_ObjectHideFlags: 0
