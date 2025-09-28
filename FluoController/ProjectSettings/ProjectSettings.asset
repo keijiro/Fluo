@@ -814,7 +814,8 @@ PlayerSettings:
   webGLWebAssemblyBigInt: 0
   webGLCloseOnQuit: 0
   webWasm2023: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    iPhone: VJUITK_INITIAL_MOVEMENT_REJECTION
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
