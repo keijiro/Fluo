@@ -85,36 +85,25 @@ public unsafe struct RemoteInputState : IInputStateTypeInfo
 [InputControlLayout(stateType = typeof(RemoteInputState))]
 public class RemoteInputDevice : InputDevice
 {
-    public static RemoteInputDevice current { get; private set; }
-
-    public override void MakeCurrent()
+    protected override unsafe long ExecuteCommand(InputDeviceCommand* commandPtr)
     {
-        base.MakeCurrent();
-        current = this;
+        if (commandPtr->type == RequestSyncCommand.Type)
+            return InputDeviceCommand.GenericSuccess;
+        return base.ExecuteCommand(commandPtr);
     }
-
-    protected override void OnRemoved()
-    {
-        base.OnRemoved();
-        if (current == this) current = null;
-    }
-
-#if UNITY_EDITOR
 
     static RemoteInputDevice()
     {
         InputSystem.RegisterLayout<RemoteInputDevice>();
-        if (current == null) InputSystem.AddDevice<RemoteInputDevice>();
+        var device = InputSystem.GetDevice<RemoteInputDevice>();
+        if (device != null) return;
+        InputSystem.AddDevice<RemoteInputDevice>("Fluo Remote");
     }
 
-#else
+#if !UNITY_EDITOR
 
-    [RuntimeInitializeOnLoadMethod]
-    static void Initialize()
-    {
-        InputSystem.RegisterLayout<RemoteInputDevice>();
-        if (current == null) InputSystem.AddDevice<RemoteInputDevice>();
-    }
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void Initialize() {}
 
 #endif
 }

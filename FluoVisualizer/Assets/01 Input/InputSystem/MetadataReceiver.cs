@@ -19,9 +19,9 @@ public sealed class MetadataReceiver : MonoBehaviour
         LastReceived = Metadata.Deserialize(xml);
 
         // Update RemoteInputDevice via InputSystem
-        if (RemoteInputDevice.current != null)
-            InputSystem.QueueStateEvent
-              (RemoteInputDevice.current, LastReceived.InputState);
+        var remote = InputSystem.GetDevice<RemoteInputDevice>();
+        if (remote == null) return;
+        InputSystem.QueueStateEvent(remote, LastReceived.InputState);
     }
 }
 
