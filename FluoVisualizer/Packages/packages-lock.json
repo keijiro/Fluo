@@ -13,7 +13,7 @@
     },
     "com.unity.burst": {
       "version": "1.8.24",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
@@ -284,6 +284,15 @@
       "depth": 2,
       "source": "registry",
       "dependencies": {},
+      "url": "https://registry.npmjs.com"
+    },
+    "jp.keijiro.pugrad": {
+      "version": "1.1.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.burst": "1.5.0-pre.3"
+      },
       "url": "https://registry.npmjs.com"
     },
     "jp.keijiro.shadergraphassets": {
