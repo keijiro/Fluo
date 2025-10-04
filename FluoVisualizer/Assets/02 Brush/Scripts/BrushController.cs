@@ -19,7 +19,7 @@ public sealed class BrushController : MonoBehaviour
             var t = (i + 1.0f) / _colorKeys.Length;
 
             var h = Random.value * math.PI * 2;;
-            var s = 120.0f;
+            var s = 100.0f;
             var v = t * t * t * 59 + 1;
 
             HsluvHelper.HsluvToRgb(math.float3(h, s, v), out float3 rgb);
