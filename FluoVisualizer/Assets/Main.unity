@@ -201,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <DistanceParameter>k__BackingField: 0.5
   <AngleParameter>k__BackingField: 0.5
+  <TweenSpeed>k__BackingField: 1
   _targetBase: {fileID: 2100469765}
   _targetMotion: {fileID: 1672640286}
   _rotationBase: {fileID: 1218475532}
@@ -1369,7 +1370,7 @@ VisualEffect:
         m_Overridden: 1
     m_Uint:
       m_Array:
-      - m_Value: 824
+      - m_Value: 820
         m_Name: WaveformSampleCount
         m_Overridden: 1
       - m_Value: 4096
@@ -1421,7 +1422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdafc37f32b176349b1684c4455b98e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ExecuteInEditor: 1
+  m_ExecuteInEditor: 0
   m_Bindings:
   - {fileID: 635178405}
   - {fileID: 635178409}

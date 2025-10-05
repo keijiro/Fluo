@@ -1,5 +1,6 @@
 using UnityEngine;
 using Unity.Mathematics;
+using Klak.Math;
 using Klak.Motion;
 using System;
 
@@ -14,6 +15,9 @@ public sealed class CameraController : MonoBehaviour
 
     [field:SerializeField, Range(0, 1)]
     public float AngleParameter { get; set; } = 0.5f;
+
+    [field:SerializeField]
+    public float TweenSpeed { get; set; } = 1;
 
     #endregion
 
@@ -98,12 +102,22 @@ public sealed class CameraController : MonoBehaviour
 
     #endregion
 
+    #region Parameters for tweening
+
+    (float x, float v) _distanceParam;
+    (float x, float v) _angleParam;
+
+    #endregion
+
     #region MonoBehaviour implementation
 
     void Update()
     {
-        ApplyDistanceSettings(DistanceParameter);
-        ApplyAngleSettings(AngleParameter);
+        _distanceParam = CdsTween.Step(_distanceParam, DistanceParameter, TweenSpeed);
+        _angleParam = CdsTween.Step(_angleParam, AngleParameter, TweenSpeed);
+
+        ApplyDistanceSettings(_distanceParam.x);
+        ApplyAngleSettings(_angleParam.x);
     }
 
     #endregion
