@@ -13,7 +13,7 @@
                 <VJUITK.VJKnob name="knob-2" label="Brush" high-value="1" value="1" />
                 <VJUITK.VJKnob name="knob-9" label="Palette" high-value="1" />
                 <VJUITK.VJButton name="button-0" label="Shuffle" />
-                <VJUITK.VJKnob name="knob-3" label="Decay" high-value="1" value="0.5" />
+                <VJUITK.VJKnob name="knob-3" label="Sustain" high-value="1" value="0.5" />
                 <VJUITK.VJKnob name="knob-4" label="Drops" high-value="1" />
                 <VJUITK.VJKnob name="knob-5" label="Streams" high-value="1" />
             </engine:VisualElement>

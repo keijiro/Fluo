@@ -2123,7 +2123,7 @@ GameObject:
   - component: {fileID: 897339330}
   - component: {fileID: 897339331}
   m_Layer: 0
-  m_Name: Decay
+  m_Name: Remote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2161,6 +2161,33 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
+      value: 2.5
+      inSlope: -4.5
+      outSlope: -4.5
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.33333334
+      value: 1
+      inSlope: -3.4499998
+      outSlope: -3.4499998
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6666667
+      value: 0.2
+      inSlope: -1.5
+      outSlope: -1.5
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -2168,33 +2195,6 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.33333334
-      value: 0.2
-      inSlope: 1.4999999
-      outSlope: 1.4999999
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.6666667
-      value: 1
-      inSlope: 3.4500003
-      outSlope: 3.4500003
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 2.5
-      inSlope: 4.5000005
-      outSlope: 4.5000005
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -4062,7 +4062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1664091551}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: Sustain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4076,14 +4076,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664091550}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1828171586}
   - {fileID: 897339330}
-  m_Father: {fileID: 1743194680}
+  m_Father: {fileID: 1838652300}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1672640284
 GameObject:
@@ -4402,7 +4402,6 @@ Transform:
   - {fileID: 1838652300}
   - {fileID: 1851388415}
   - {fileID: 124099774}
-  - {fileID: 1664091551}
   m_Father: {fileID: 442345072}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1766465144
@@ -4825,6 +4824,7 @@ Transform:
   - {fileID: 1486879819}
   - {fileID: 1187651892}
   - {fileID: 485784578}
+  - {fileID: 1664091551}
   - {fileID: 568523039}
   - {fileID: 1223233347}
   m_Father: {fileID: 1743194680}
