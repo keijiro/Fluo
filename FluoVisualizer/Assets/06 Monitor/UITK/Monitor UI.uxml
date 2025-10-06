@@ -3,7 +3,7 @@
     <ui:VisualElement name="left-bar" style="background-image: url(&quot;project://database/Assets/06%20Monitor/Composite/Composite.asset?fileID=8600000&amp;guid=7f656ae72923842ee93f35610b558a36&amp;type=2#Composite&quot;); -unity-background-scale-mode: scale-and-crop; position: absolute; top: 162px; left: 68px; width: 275px; height: 756px; background-position-x: left 0;" />
     <ui:VisualElement name="render" style="background-image: url(&quot;project://database/Assets/06%20Monitor/Composite/Composite.asset?fileID=8600000&amp;guid=7f656ae72923842ee93f35610b558a36&amp;type=2#Composite&quot;); -unity-background-scale-mode: scale-and-crop; position: absolute; top: 162px; left: 376px; right: 376px; bottom: 162px;" />
     <ui:VisualElement name="right-bar" style="background-image: url(&quot;project://database/Assets/06%20Monitor/Composite/Composite.asset?fileID=8600000&amp;guid=7f656ae72923842ee93f35610b558a36&amp;type=2#Composite&quot;); -unity-background-scale-mode: scale-and-crop; position: absolute; top: 162px; width: 275px; height: 756px; background-position-x: right 0; right: 68px;" />
-    <ui:VisualElement name="debug-root" style="position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px;">
+    <ui:VisualElement name="debug-root" style="position: absolute; top: 30px; left: 30px; right: 30px; bottom: 30px;">
         <ui:DropdownField name="source-selector" label="Source" data-source-type="Fluo.SourceSelector, Assembly-CSharp" focusable="false">
             <Bindings>
                 <ui:DataBinding property="choices" data-source-path="SourceList" binding-mode="ToTarget" />

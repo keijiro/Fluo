@@ -1,15 +1,12 @@
 .unity-text-element {
     -unity-font-definition: url("project://database/Assets/00%20Common/Fonts/Kode_Mono/static/KodeMono-Regular.ttf?fileID=12800000&guid=62868cb1b67cc4eceb0a7e34dc175541&type=3#KodeMono-Regular");
     color: rgb(214, 214, 214);
-    font-size: 10px;
+    font-size: 24px;
 }
 
 .unity-base-field__label {
-    min-width: 60px;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 8px;
+    min-width: 120px;
+    margin: 0 0 0 8px;
     padding: 0;
     -unity-text-align: middle-left;
 }
@@ -24,10 +21,7 @@
     max-width: 50%;
     border-width: 0;
     border-bottom-width: 1px;
-    margin-top: 0;
-    margin-right: 16px;
-    margin-bottom: 0;
-    margin-left: 8px;
+    margin: 0 16px 0 8px;
     padding: 0;
 }
 
@@ -52,24 +46,21 @@
 }
 
 .debugView {
-    width: 128px;
-    height: 72px;
+    width: 400px;
+    height: 225px;
     background-size: 300% 300%;
-    margin-top: 2px;
-    margin-right: 2px;
-    margin-bottom: 2px;
-    margin-left: 2px;
+    margin: 8px;
 }
 
 .debugViewRow {
     flex-direction: row;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
 }
 
 .rowLabel {
     position: absolute;
-    top: 4px;
-    left: 4px;
+    top: 16px;
+    left: 16px;
     margin: 0;
     padding: 0;
 }
