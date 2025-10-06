@@ -411,7 +411,7 @@
     "m_FunctionName": "VertexID2Point",
     "m_FunctionSource": "",
     "m_FunctionSourceUsePragmas": true,
-    "m_FunctionBody": "uint id = (uint)ID;\n\nfloat x = ((id & 3) < 1 ? -1 : 1) * (id < 4 ? 1 : -1);\nfloat y = ((id & 3) < 3 ? -1 : 1) * (id < 4 ? 1 : -1);\n\nPos = float3(x, y, 0) * 0.5 * float3(16.0 / 9, 1, 0);\n"
+    "m_FunctionBody": "uint id = (uint)ID;\n\nfloat x = ((id & 3) < 1 ? -1 : 1) * (id < 4 ? 1 : -1);\nfloat y = ((id & 3) < 3 ? -1 : 1) * (id < 4 ? 1 : -1);\n\nPos = float3(x, y, 0) * 0.5;"
 }
 
 {
