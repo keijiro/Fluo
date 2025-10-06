@@ -5,7 +5,7 @@ Shader "Hidden/Fluo/Prefilter"
         _MainTex("", 2D) = "" {}
         _BodyPixTex("", 2D) = "" {}
         _LutTex("", 3D) = "" {}
-        _Effect("", Color) = (0, 0, 0, 0)
+        _EffectColor("", Color) = (0, 0, 0, 0)
     }
 
 HLSLINCLUDE
@@ -24,7 +24,8 @@ float _LutBlend;
 TEXTURE2D(_BodyPixTex);
 float4 _BodyPixTex_TexelSize;
 
-float4 _Effect;
+float4 _Fluo_AudioLevel;
+float4 _EffectColor;
 
 // LUT application
 float3 ApplyLut(float3 input)
@@ -81,9 +82,9 @@ float4 BackgroundEffect(float2 uv)
 {
     float t = _Time.y % 997;
     float n = SimplexNoise(float2(uv.x * 6, t * 2));
-    float thresh = max(0, _Effect.a - 0.333);
+    float thresh = max(0, _Fluo_AudioLevel.x - 0.333);
     float alpha = 1 - smoothstep(thresh, 1.1 * thresh, abs(n));
-    return float4(_Effect.rgb, alpha);
+    return float4(_EffectColor.rgb, alpha);
 }
 
 // Shared vertex shader

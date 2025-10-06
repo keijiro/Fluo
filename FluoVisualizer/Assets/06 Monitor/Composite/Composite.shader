@@ -16,7 +16,7 @@ TEXTURE2D(_MainTex);
 TEXTURE2D(_HudTex);
 
 float4 _HudColor;
-float _Fluo_MonitorEffect;
+float4 _Fluo_AudioLevel;
 
 float2 ApplyUVEffect(float2 uv)
 {
@@ -26,7 +26,7 @@ float2 ApplyUVEffect(float2 uv)
     dx = dx * dx * dx;
 
     float amp = GenerateHashedRandomFloat(uint2(t * 10, uv.y * 32 + 2000));
-    amp = 0.03 * (amp < 0.8 * _Fluo_MonitorEffect);
+    amp = 0.03 * (amp < 0.8 * _Fluo_AudioLevel.z);
 
     return float2(uv.x + dx * amp, uv.y);
 }

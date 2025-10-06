@@ -11,9 +11,6 @@ public sealed class Prefilter : MonoBehaviour
     [field:SerializeField, Range(0, 1)]
     public float LutBlend { get; set; } = 1;
 
-    [field:SerializeField, Range(0, 1)]
-    public float EffectIntensity { get; set; } = 0;
-
     #endregion
 
     #region Editable attributes
@@ -36,14 +33,6 @@ public sealed class Prefilter : MonoBehaviour
 
     BodyDetector _detector;
     Material _material;
-
-    Color GetEffectParam()
-    {
-        var hue = Time.time * Mathf.PI * 2 / 270;
-        var c = Pugrad.Hsluv.ToRgb(hue, 120, 60);
-        c.a = EffectIntensity;
-        return c;
-    }
 
     #endregion
 
@@ -68,7 +57,9 @@ public sealed class Prefilter : MonoBehaviour
         _material.SetTexture(ShaderID.BodyPixTex, _detector.MaskTexture);
         _material.SetTexture(ShaderID.LutTex, _lutTexture);
         _material.SetFloat(ShaderID.LutBlend, LutBlend);
-        _material.SetColor(ShaderID.Effect, GetEffectParam());
+
+        var fxcol = Pugrad.Hsluv.ToRgb(Time.time * Mathf.PI * 2 / 270, 120, 60);
+        _material.SetColor(ShaderID.EffectColor, fxcol);
 
         // Multiplexing: Color grading and human stencil
         Graphics.Blit(_source.AsTexture, _multiplexOut, _material, 0);
