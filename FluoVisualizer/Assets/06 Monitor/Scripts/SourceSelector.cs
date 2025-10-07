@@ -14,6 +14,7 @@ public sealed class SourceSelector : MonoBehaviour
     #region Scene object references
 
     [SerializeField] ImageSource _imageSource = null;
+    [SerializeField] bool _initiallyHidden = false;
 
     #endregion
 
@@ -90,6 +91,9 @@ public sealed class SourceSelector : MonoBehaviour
         // Initial source selection
         if (PlayerPrefs.HasKey(PrefKey))
             SelectSource(UISelector.value = PlayerPrefs.GetString(PrefKey));
+
+        // Initial UI visibility
+        if (_initiallyHidden) ToggleUI();
     }
 
     #endregion
