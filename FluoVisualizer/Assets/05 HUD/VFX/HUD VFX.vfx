@@ -528,10 +528,10 @@ MonoBehaviour:
     collapsed: 1
   uiBounds:
     serializedVersion: 2
-    x: 0
-    y: -1909
-    width: 6708
-    height: 2389
+    x: 394
+    y: -1968
+    width: 6339
+    height: 2473
 --- !u!114 &114350483966675611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13729,7 +13729,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Transform, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":-0.5709999799728394,"y":-0.414000004529953,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.4000000059604645,"y":0.0625,"z":1.0}}'
+      m_SerializableObject: '{"position":{"x":-0.6100000143051148,"y":-0.42500001192092898,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.30000001192092898,"y":0.05000000074505806,"z":1.0}}'
     m_Space: 0
   m_Property:
     name: transform
@@ -14973,7 +14973,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Transform, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":-0.5709999799728394,"y":-0.414000004529953,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.4000000059604645,"y":0.125,"z":1.0}}'
+      m_SerializableObject: '{"position":{"x":-0.6100000143051148,"y":-0.42500001192092898,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.30000001192092898,"y":0.10000000149011612,"z":1.0}}'
     m_Space: 0
   m_Property:
     name: transform
@@ -17908,7 +17908,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.125
+      m_SerializableObject: 0.1
     m_Space: -1
   m_Property:
     name: _Scale
@@ -18129,7 +18129,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Transform, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":-0.3499999940395355,"y":0.5239999890327454,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.05000000074505806,"y":1.0,"z":1.0}}'
+      m_SerializableObject: '{"position":{"x":-0.4300000071525574,"y":0.5239999890327454,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.05000000074505806,"y":1.0,"z":1.0}}'
     m_Space: 0
   m_Property:
     name: transform
