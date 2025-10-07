@@ -21,7 +21,7 @@
         <engine:VisualElement name="row" style="flex-direction: row;">
             <engine:VisualElement name="section" class="control-section">
                 <engine:Label text="Environment VFX" class="control-section-label" />
-                <VJUITK.VJKnob name="knob-6" label="Balls" high-value="1" value="0" />
+                <VJUITK.VJKnob name="knob-6" label="Bubbles" high-value="1" value="0" />
                 <VJUITK.VJKnob name="knob-7" label="Streams" high-value="1" />
                 <VJUITK.VJKnob name="knob-8" label="Confetti" high-value="1" />
             </engine:VisualElement>

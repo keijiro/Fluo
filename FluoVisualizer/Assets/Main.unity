@@ -1503,7 +1503,7 @@ GameObject:
   - component: {fileID: 657327188}
   - component: {fileID: 657327187}
   m_Layer: 0
-  m_Name: Balls
+  m_Name: Bubbles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
