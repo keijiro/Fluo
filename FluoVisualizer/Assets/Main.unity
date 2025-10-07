@@ -1652,6 +1652,7 @@ GameObject:
   - component: {fileID: 674202943}
   - component: {fileID: 674202945}
   - component: {fileID: 674202944}
+  - component: {fileID: 674202946}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -1762,6 +1763,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &674202946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674202942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf3717d5212746929a28b0c8b9a7eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Amplitude>k__BackingField: 1
+  <HueCycle>k__BackingField: 0
 --- !u!1 &679891992
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,6 +2420,7 @@ GameObject:
   - component: {fileID: 1023510848}
   - component: {fileID: 1023510850}
   - component: {fileID: 1023510849}
+  - component: {fileID: 1023510851}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -2461,7 +2477,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2515,6 +2531,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1023510851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023510847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf3717d5212746929a28b0c8b9a7eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Amplitude>k__BackingField: 1
+  <HueCycle>k__BackingField: 240
 --- !u!1 &1027370946
 GameObject:
   m_ObjectHideFlags: 0
@@ -2692,6 +2722,7 @@ GameObject:
   - component: {fileID: 1095850186}
   - component: {fileID: 1095850188}
   - component: {fileID: 1095850187}
+  - component: {fileID: 1095850189}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -2802,6 +2833,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1095850189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095850185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf3717d5212746929a28b0c8b9a7eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Amplitude>k__BackingField: 1
+  <HueCycle>k__BackingField: 0
 --- !u!1 &1100948195
 GameObject:
   m_ObjectHideFlags: 0
@@ -3463,18 +3508,18 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0.9
-      tangentMode: 69
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0.9
-      inSlope: 0.9
+      value: 1
+      inSlope: 1
       outSlope: 1
-      tangentMode: 69
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -3509,9 +3554,9 @@ MonoBehaviour:
   _event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1023510850}
-        m_TargetAssemblyTypeName: UnityEngine.Light, UnityEngine
-        m_MethodName: set_intensity
+      - m_Target: {fileID: 1023510851}
+        m_TargetAssemblyTypeName: Fluo.LightController, Assembly-CSharp
+        m_MethodName: set_Amplitude
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4326,7 +4371,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1572564298}
   - component: {fileID: 1572564299}
-  - component: {fileID: 1572564300}
   m_Layer: 0
   m_Name: Fixed
   m_TagString: Untagged
@@ -4367,18 +4411,18 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 18
-      tangentMode: 69
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 18
-      inSlope: 18
+      value: 1
+      inSlope: 1
       outSlope: 1
-      tangentMode: 69
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -4413,9 +4457,9 @@ MonoBehaviour:
   _event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1095850188}
-        m_TargetAssemblyTypeName: UnityEngine.Light, UnityEngine
-        m_MethodName: set_intensity
+      - m_Target: {fileID: 1095850189}
+        m_TargetAssemblyTypeName: Fluo.LightController, Assembly-CSharp
+        m_MethodName: set_Amplitude
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4425,73 +4469,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1572564300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572564297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dd89121f644f427f9805079e3eb00eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 2
-      tangentMode: 69
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 2
-      inSlope: 2
-      outSlope: 1
-      tangentMode: 69
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _action:
-    m_Name: Action
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: e17d89de-6fef-4de7-aa7c-7eeaeec009ae
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: dd4b285d-8dc7-4efc-9eb8-9dea800f90b6
-      m_Path: <RemoteInputDevice>/knob10
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Action
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 982479d5-31af-4c8b-af74-8c8684a3709b
-      m_Path: <Keyboard>/k
-      m_Interactions: InputToggle
-      m_Processors: 
-      m_Groups: 
-      m_Action: Action
-      m_Flags: 0
-    m_Flags: 0
-  _event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 674202945}
-        m_TargetAssemblyTypeName: UnityEngine.Light, UnityEngine
-        m_MethodName: set_intensity
+      - m_Target: {fileID: 674202946}
+        m_TargetAssemblyTypeName: Fluo.LightController, Assembly-CSharp
+        m_MethodName: set_Amplitude
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
