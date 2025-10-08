@@ -92,7 +92,7 @@ MonoBehaviour:
     x: -67
     y: 204
     width: 870
-    height: 1794
+    height: 1813
 --- !u!114 &114350483966674978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2862,6 +2862,7 @@ MonoBehaviour:
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
+  - {fileID: 114350483966675426}
   - {fileID: 114350483966675421}
   - {fileID: 114350483966675422}
   m_OutputSlots: []
@@ -2869,11 +2870,11 @@ MonoBehaviour:
   m_ActivationSlot: {fileID: 114350483966675416}
   m_BlockName: Custom HLSL
   m_HLSLCode: "#include \"Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl\"\n\nvoid
-    ApplyColorModification(inout VFXAttributes attrib, float amplitude, float3 flash)\n{\n   
-    float3 c = attrib.color;\n    float age = attrib.age / attrib.lifetime;\n\n   
-    float x = min(2 * age, 2 - 2 * age);\n    x = x * x * x *x;\n\n    float l =
-    Luminance(c);\n    c = max(0, l + (c - l) * amplitude);\n\n    attrib.color =
-    c * x * flash;\n}"
+    ApplyColorModification(inout VFXAttributes attrib, float saturation, float amplitude,
+    float3 flash)\n{\n    float3 c = attrib.color;\n    float age = attrib.age /
+    attrib.lifetime;\n\n    float x = min(2 * age, 2 - 2 * age);\n    x = x * x *
+    x * x;\n\n    float l = Luminance(c);\n    c = max(0, lerp(l, c, saturation))
+    * amplitude;\n\n    attrib.color = c * x * flash;\n}"
   m_ShaderFile: {fileID: 0}
   m_AvailableFunction:
     selection: ApplyColorModification
@@ -2937,7 +2938,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 800
+      m_SerializableObject: 100
     m_Space: -1
   m_Property:
     name: _amplitude
@@ -2974,7 +2975,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.0,"y":0.0,"z":0.0}'
+      m_SerializableObject: '{"x":1.0,"y":1.0,"z":1.0}'
     m_Space: -1
   m_Property:
     name: _flash
@@ -3078,6 +3079,40 @@ MonoBehaviour:
     m_Space: -1
   m_Property:
     name: z
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+  m_Direction: 0
+  m_LinkedSlots: []
+--- !u!114 &114350483966675426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 114350483966675426}
+  m_MasterData:
+    m_Owner: {fileID: 114350483966675410}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 5
+    m_Space: -1
+  m_Property:
+    name: _saturation
     m_serializedType:
       m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
