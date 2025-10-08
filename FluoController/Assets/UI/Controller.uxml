@@ -30,6 +30,10 @@
                 <VJUITK.VJKnob name="knob-10" label="Fixed" high-value="1" value="1" />
                 <VJUITK.VJKnob name="knob-11" label="Floating" high-value="1" />
             </engine:VisualElement>
+            <engine:VisualElement name="section" class="control-section">
+                <engine:Label text="Audio" class="control-section-label" />
+                <VJUITK.VJKnob name="knob-12" label="Mic" high-value="1" value="1" />
+            </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="camera" style="position: absolute; right: 0; bottom: 0;">
             <VJUITK.VJButton label="Front" name="camera-front" />
