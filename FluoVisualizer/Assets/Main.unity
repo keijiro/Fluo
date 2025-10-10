@@ -4761,6 +4761,7 @@ GameObject:
   - component: {fileID: 1709215340}
   - component: {fileID: 1709215338}
   - component: {fileID: 1709215341}
+  - component: {fileID: 1709215342}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -4898,6 +4899,30 @@ MonoBehaviour:
   <BoundaryFade>k__BackingField: 0.3
   <DownsampleMode>k__BackingField: 1
   <BokehMode>k__BackingField: 1
+--- !u!114 &1709215342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709215336}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e61628d3a0e081469e7b26dcd216e32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <SourceMode>k__BackingField: 0
+  <LowColor>k__BackingField: {r: 1, g: 0, b: 0.78841305, a: 1}
+  <HighColor>k__BackingField: {r: 1, g: 0.56485766, b: 0, a: 1}
+  <SplitLevel>k__BackingField: 0.3
+  <BlackColor>k__BackingField: {r: 0, g: 0, b: 0, a: 1}
+  <BlackLevel>k__BackingField: 0.16
+  <WhiteColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+  <WhiteLevel>k__BackingField: 0.6
+  <ContourColor>k__BackingField: {r: 0, g: 0, b: 0, a: 1}
+  <DitherType>k__BackingField: 3
+  <DitherStrength>k__BackingField: 0.3
+  <Shader>k__BackingField: {fileID: -6465566751694194690, guid: 5d0f93ba092e5a545bab40b50ba2861e, type: 3}
 --- !u!1 &1743194679
 GameObject:
   m_ObjectHideFlags: 0

@@ -168,6 +168,13 @@
       },
       "url": "https://registry.npmjs.com"
     },
+    "jp.keijiro.duotone": {
+      "version": "2.2.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.com"
+    },
     "jp.keijiro.fluo": {
       "version": "file:jp.keijiro.fluo",
       "depth": 0,
