@@ -238,12 +238,12 @@
       "url": "https://registry.npmjs.com"
     },
     "jp.keijiro.lasp": {
-      "version": "2.1.7",
-      "depth": 1,
+      "version": "2.1.8",
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.burst": "1.4.4",
-        "jp.keijiro.libsoundio": "1.0.5"
+        "jp.keijiro.libsoundio": "1.0.6"
       },
       "url": "https://registry.npmjs.com"
     },
@@ -257,8 +257,8 @@
       "url": "https://registry.npmjs.com"
     },
     "jp.keijiro.libsoundio": {
-      "version": "1.0.5",
-      "depth": 2,
+      "version": "1.0.6",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://registry.npmjs.com"
