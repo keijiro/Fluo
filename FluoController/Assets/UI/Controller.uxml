@@ -17,6 +17,10 @@
                 <VJUITK.VJKnob name="knob-4" label="Drops" high-value="1" />
                 <VJUITK.VJKnob name="knob-5" label="Streams" high-value="1" />
             </engine:VisualElement>
+            <engine:VisualElement name="section" class="control-section">
+                <engine:Label text="Theme" class="control-section-label" />
+                <VJUITK.VJKnob name="knob-13" label="Hue" high-value="1" />
+            </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="row" style="flex-direction: row;">
             <engine:VisualElement name="section" class="control-section">

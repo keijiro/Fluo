@@ -58,9 +58,6 @@ public sealed class Prefilter : MonoBehaviour
         _material.SetTexture(ShaderID.LutTex, _lutTexture);
         _material.SetFloat(ShaderID.LutBlend, LutBlend);
 
-        var fxcol = Pugrad.Hsluv.ToRgb(Time.time * Mathf.PI * 2 / 270, 120, 60);
-        _material.SetColor(ShaderID.EffectColor, fxcol);
-
         // Multiplexing: Color grading and human stencil
         Graphics.Blit(_source.AsTexture, _multiplexOut, _material, 0);
 

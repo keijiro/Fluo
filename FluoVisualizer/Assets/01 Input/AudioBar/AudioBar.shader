@@ -7,8 +7,9 @@ Shader "Fluo/AudioBar"
 #include "Packages/jp.keijiro.noiseshader/Shader/SimplexNoise2D.hlsl"
 
 float4 _Fluo_AudioLevel;
+float4 _Fluo_ThemeColor;
 
-float BarEffect(float x)
+float3 BarEffect(float x)
 {
     float t = _Time.y % 997;
 
@@ -20,19 +21,19 @@ float BarEffect(float x)
     float a2 = n2 - 1 + _Fluo_AudioLevel.y;
     float a3 = n3 - 1 + _Fluo_AudioLevel.z;
 
-    return saturate(a1) + saturate(a2) + saturate(a3);
+    float a = saturate(saturate(a1) + saturate(a2) + saturate(a3));
+
+    return _Fluo_ThemeColor.rgb * a * a * a;
 }
 
 float4 FragmentUpdateH(CustomRenderTextureVaryings i) : SV_Target
 {
-    float a = BarEffect(1 + i.globalTexcoord.x / 3);
-    return float4(a, a, a, 1);
+    return float4(BarEffect(1 + i.globalTexcoord.x / 3), 1);
 }
 
 float4 FragmentUpdateV(CustomRenderTextureVaryings i) : SV_Target
 {
-    float a = BarEffect(i.globalTexcoord.y);
-    return float4(a, a, a, 1);
+    return float4(BarEffect(i.globalTexcoord.y), 1);
 }
 
     ENDHLSL
