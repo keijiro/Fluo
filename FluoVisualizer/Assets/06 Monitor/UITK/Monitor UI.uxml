@@ -7,6 +7,7 @@
     <ui:VisualElement name="right-bar" style="background-image: url(&quot;project://database/Assets/06%20Monitor/Composite/Composite.asset?fileID=8600000&amp;guid=7f656ae72923842ee93f35610b558a36&amp;type=2#Composite&quot;); -unity-background-scale-mode: scale-and-crop; position: absolute; top: 162px; width: 275px; height: 756px; background-position-x: right 0; right: 68px;" />
     <ui:VisualElement name="rside-edge-bar" style="background-image: url(&quot;project://database/Assets/01%20Input/AudioBar/AudioBarV.asset?fileID=8600000&amp;guid=c88efd4c11b4348b780c974e11ee111f&amp;type=2#AudioBarV&quot;); position: absolute; top: 162px; width: 68px; height: 756px; right: 0;" />
     <ui:VisualElement name="rside-bottom-bar" style="background-image: url(&quot;project://database/Assets/01%20Input/AudioBar/AudioBarH.asset?fileID=8600000&amp;guid=9de2ff62ec3914e69a8a29c0f36ca66c&amp;type=2#AudioBarH&quot;); position: absolute; top: 917px; width: 275px; height: 69px; right: 69px;" />
+    <ui:VisualElement name="click-area-1" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;" />
     <ui:VisualElement name="debug-root" style="position: absolute; top: 30px; left: 30px; right: 30px; bottom: 30px;">
         <ui:DropdownField name="source-selector" label="Source" data-source-type="Fluo.SourceSelector, Assembly-CSharp" focusable="false">
             <Bindings>
@@ -31,7 +32,7 @@
                 <ui:VisualElement name="canvas-alpha" class="debugView" style="background-image: url(&quot;project://database/Assets/06%20Monitor/DebugView/DebugView.asset?fileID=8600000&amp;guid=62395233aca724009a80ef9c149cdb87&amp;type=2#DebugView&quot;); background-position-x: right 0; background-position-y: center 0;" />
                 <ui:Label text="Canvas" class="rowLabel" />
             </ui:VisualElement>
-            <ui:VisualElement name="click-area" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;" />
+            <ui:VisualElement name="click-area-2" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

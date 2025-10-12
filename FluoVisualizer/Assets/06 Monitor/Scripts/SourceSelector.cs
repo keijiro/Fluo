@@ -82,8 +82,8 @@ public sealed class SourceSelector : MonoBehaviour
         UISelector.dataSource = this;
 
         // UI root as a clickable UI visibility toggle
-        UIRoot.Q("render").AddManipulator(new Clickable(ToggleUI));
-        UIRoot.Q("click-area").AddManipulator(new Clickable(ToggleUI));
+        UIRoot.Q("click-area-1").AddManipulator(new Clickable(ToggleUI));
+        UIRoot.Q("click-area-2").AddManipulator(new Clickable(ToggleUI));
 
         // Dropdown selection callback
         UISelector.RegisterValueChangedCallback(evt => SelectSource(evt.newValue));

@@ -2161,7 +2161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _imageSource: {fileID: 845794253}
-  _initiallyHidden: 1
+  _initiallyHidden: 0
 --- !u!114 &884952920
 MonoBehaviour:
   m_ObjectHideFlags: 0
