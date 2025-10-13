@@ -50,7 +50,7 @@ float4 fragUpdate(CustomRenderTextureVaryings i) : SV_Target
         }
         else if (cell.x == 1)
         {
-            float2 v = SAMPLE_TEXTURE2D(_MotionTex, sampler_LinearClamp, uv).rgb;
+            float2 v = SAMPLE_TEXTURE2D(_MotionTex, sampler_LinearClamp, uv).rg;
             output = SRGBToLinear(float3(v * 10 + 0.5, 0));
         }
         else
